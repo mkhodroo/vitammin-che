@@ -64,36 +64,14 @@
                 <div class="text-center swiper-slide" >
                     <h2 class="width-200 white-color yekan-titr">دسته بندی ها</h2>
                 </div>
-                <div class="swiper-slide text-center">
-                    <a href="{{ route('show-catagory-by-part-of-name', ['name' => 'ایسیو های نسل دو']) }}">
-                        <img class="width-200" src="{{ url('public/store/assets/img/ecu.png') }}" alt="capsole" style="width: 100%">
-                        <h4 style="font-weight: bold" class="white-color">ایسیوهای نسل دو</h4>
-                    </a>
-                </div>
-                <div class="swiper-slide text-center">
-                    <a href="{{ route('show-catagory-by-part-of-name', ['name' => 'مخزن']) }}">
-                        <img class="width-200" src="{{ url('public/store/assets/img/capsole.png') }}" alt="capsole" style="width: 100%">
-                        <h4 style="font-weight: bold" class="white-color">مخازن CNG</h4>
-                    </a>
-                </div>
-                <div class="swiper-slide text-center">
-                    <a href="{{ route('show-catagory-by-part-of-name', ['name' => 'رگلاتور']) }}">
-                        <img class="width-200" src="{{ url('public/store/assets/img/cng-regolator.png') }}" alt="capsole" style="width: 100%">
-                        <h4 style="font-weight: bold" class="white-color">رگولاتورهای CNG</h4>
-                    </a>
-                </div>
-                <div class="swiper-slide text-center">
-                    <a href="{{ route('show-catagory-by-part-of-name', ['name' => 'شیرمخزن']) }}">
-                        <img class="width-200" src="{{ url('public/store/assets/img/cng-valve.png') }}" alt="capsole" style="width: 100%">
-                        <h4 style="font-weight: bold" class="white-color">شیرمخزن CNG</h4>
-                    </a>
-                </div>
-                <div class="swiper-slide text-center">
-                    <a href="{{ route('show-catagory-by-part-of-name', ['name' => 'شیرقطع کن']) }}">
-                        <img class="width-200" src="{{ url('public/store/assets/img/cng-cutoff-valve.png') }}" alt="capsole">
-                        <h4 style="font-weight: bold" class="white-color">شیرقطع کن های CNG</h4>
-                    </a>
-                </div>
+                @foreach ($catagories as $c)
+                    <div class="swiper-slide text-center">
+                        <a href="{{ route('show-catagory-by-name', ['name' => $c->name]) }}">
+                            <img class="width-200" src="{{ url('public/store/assets/img/ecu.png') }}" alt="capsole" style="width: 100%">
+                            <h4 style="font-weight: bold" class="white-color">{{ $c->name }}</h4>
+                        </a>
+                    </div>
+                @endforeach
             </div>
           
             <!-- If we need scrollbar -->
