@@ -68,7 +68,7 @@
                     <input type="radio" name="how_to_send" id="" value="send"> ارسال توسط ما (رایگان برای خرید های بالای 500 هزار تومان)
                 </div>
                 <div class="col-sm-12">
-                    <input type="radio" name="how_to_send" id="" value="delivery_by_customer"> تحویل حضوری توسط شما
+                    <input type="radio" name="how_to_send" id="" value="delivery_by_customer" disabled> تحویل حضوری توسط شما
                 </div>
             </fieldset>
             
