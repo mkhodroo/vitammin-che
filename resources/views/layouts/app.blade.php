@@ -200,9 +200,9 @@
                                         </ul>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4 class="block-title"><span></span></h4><hr>
+                                        <h4 class="block-title"><span>لوسیون و مرطوب کننده</span></h4><hr>
                                         <ul>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'رگلاتور نسل یک']) }}"> </a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'لوسیون و مرطوب کننده بدن']) }}">لوسیون و مرطوب کننده بدن</a></li>
                                             <li><a href="{{ route('show-catagory-by-name', ['name' => 'رگلاتور نسل دو']) }}"></a></li>
                                         </ul>
                                     </div>
