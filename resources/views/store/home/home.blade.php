@@ -67,7 +67,7 @@
                 @foreach ($catagories as $c)
                     <div class="swiper-slide text-center">
                         <a href="{{ route('show-catagory-by-name', ['name' => $c->name]) }}">
-                            <img class="width-200" src="{{ url('public/store/assets/img/ecu.png') }}" alt="capsole" style="width: 100%">
+                            <img class="width-200" src="{{ $c->image }}" alt="capsole" style="width: 100%">
                             <h4 style="font-weight: bold" class="white-color">{{ $c->name }}</h4>
                         </a>
                     </div>
