@@ -288,11 +288,11 @@
                     <div class="col-md-3">
                         <div class="widget widget-tag-cloud">
                             <h4 class="widget-title">دسته بندی ها</h4>
-                            <ul>
+                            {{-- <ul>
                                 @foreach ($catagories as $c)
                                     <li><a href="{{ route('show-catagory-by-name', ['name' => $c->name]) }}">{{ $c->name }}</a></li>
                                 @endforeach
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
 
