@@ -261,7 +261,7 @@
                     <div class="col-md-3">
                         <div class="widget">
                             <h4 class="widget-title">وبلاگ</h4>
-                            <p>در وبلاگ ما میتوانید از آخرین خبرهای حوزه سوخت های جایگزین با خبر شوید.</p>
+                            <p>در وبلاگ ما میتوانید از آخرین خبرهای حوزه سلامت با خبر شوید.</p>
                             <form action="#">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder=""/>
