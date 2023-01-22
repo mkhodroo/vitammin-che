@@ -195,6 +195,8 @@
                                         <h4 class="block-title"><span>شامپو</span></h4><hr>
                                         <ul>
                                             <li><a href="{{ route('show-catagory-by-name', ['name' => 'شامپو بچه']) }}">شامپو بچه</a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شامپو']) }}">شامپو</a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شامپو بدن بچه']) }}">شامپو بدن بچه</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-md-2">
