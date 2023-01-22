@@ -288,11 +288,18 @@
                     <div class="col-md-3">
                         <div class="widget widget-tag-cloud">
                             <h4 class="widget-title">دسته بندی ها</h4>
-                            {{-- <ul>
-                                @foreach ($catagories as $c)
-                                    <li><a href="{{ route('show-catagory-by-name', ['name' => $c->name]) }}">{{ $c->name }}</a></li>
-                                @endforeach
-                            </ul> --}}
+                            <ul id="footer-catagory">
+                                <script>
+                                    $.get('{{ route("get-product-catagories") }}', function(data){
+                                        console.log(data);
+                                        var d = $('#footer-catagory');
+                                        var url = "{{ route('show-catagory-by-name', ['name' => 'cat_name' ]) }}"
+                                        data.forEach(function(item){
+                                            d.append(`<li><a href="${ url.replace('cat_name', item.name) }">${item.name}</a></li>`)
+                                        })
+                                    })
+                                </script>
+                            </ul>
                         </div>
                     </div>
 
