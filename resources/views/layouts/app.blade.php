@@ -5,7 +5,7 @@
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>NGVKALA</title>
+    <title>VitaminChe</title>
     <meta name="keywords" content="@yield('keywords')" / >
     <meta name="description" content="@yield('description')" / >
 
@@ -306,7 +306,7 @@
                 <div class="row">
 
                     <div class="col-sm-12">
-                        <div class="copyright">تمامی حقوق این سایت متعلق به <a href="https://www.ngvkala.ir/"> ngvkala.ir<a/> می باشد</div>
+                        <div class="copyright">تمامی حقوق این سایت متعلق به <a href="https://www.vitaminche.ir/"> vitaminche.ir<a/> می باشد</div>
                     </div>
 
                 </div>
