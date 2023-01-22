@@ -145,45 +145,10 @@
             //PRODUCT IMAGES
             put_product_images_in_table(data);
 
-            Dropzone.options.dropzone =
-            {
-                init: function(){
-                    thisDropzone = this;
-                    var mockFile = { name: 'asd', size: 5 };
-                    thisDropzone.options.addedfile.call(thisDropzone, mockFile);
-                    thisDropzone.options.thumbnail.call(thisDropzone, mockFile, "/public/products/images/bB7XTvLnSO.png");
-                },
-                maxFilesize: 12,
-                renameFile: function(file) {
-                    var dt = new Date();
-                    var time = dt.getTime();
-                return time+file.name;
-                },
-                acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            $("#product-image-form").dropzone({
                 addRemoveLinks: true,
-                timeout: 5000,
-                removedfile: function(file) 
-                {
-                    var name = file.upload.filename;
-                    $.ajax({
-                        headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                                },
-                        type: 'POST',
-                        url: '{{ route('remove-product-image') }}',
-                        data: {filename: name},
-                        success: function (data){
-                            console.log("File has been successfully removed!!");
-                        },
-                        error: function(e) {
-                            console.log(e);
-                        }});
-                        var fileRef;
-                        return (fileRef = file.previewElement) != null ? 
-                        fileRef.parentNode.removeChild(file.previewElement) : void 0;
-                },
-                success: function(file, response) 
-                {
+                acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function (file, response) {
                     alert_notification(response);
                     var product_id = $('input[name="product_id"]').val();
                     get_info(product_id);
@@ -193,7 +158,8 @@
                     console.log(response);
                     return false;
                 }
-            };
+            });
+
         })
     }
 
