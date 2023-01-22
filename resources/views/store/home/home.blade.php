@@ -82,7 +82,7 @@
 
         <div class="col-sm-12 text-center " style="border: 1px solid gray; border-radius: 10px">
             <h3 style="color: black; font-weight: bold">
-                آخرین اخبار CNG
+                آخرین اخبار حوزه سلامت
             </h3>
             <hr>
             <div class="swiper newest-posts">
