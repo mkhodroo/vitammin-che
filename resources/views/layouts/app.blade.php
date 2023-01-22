@@ -192,33 +192,30 @@
                             <ul>
                                 <li class="row" >
                                     <div class="col-md-2">
-                                        <h4 class="block-title"><span>مخازن</span></h4><hr>
+                                        <h4 class="block-title"><span>شامپو</span></h4><hr>
                                         <ul>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'مخزن نوع اول']) }}">نوع اول</a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'مخزن نوع دوم']) }}">نوع دوم</a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'مخزن-نوع-سوم']) }}">نوع سوم</a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'مخزن نوع سوم']) }}">نوع چهارم</a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شامپو بچه']) }}">شامپو بچه</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4 class="block-title"><span>رگلاتور</span></h4><hr>
+                                        <h4 class="block-title"><span></span></h4><hr>
                                         <ul>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'رگلاتور نسل یک']) }}">نسل یک</a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'رگلاتور نسل دو']) }}">نسل دو</a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'رگلاتور نسل یک']) }}"> </a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'رگلاتور نسل دو']) }}"></a></li>
                                         </ul>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4 class="block-title"><span>شیرمخزن</span></h4><hr>
+                                        <h4 class="block-title"><span></span></h4><hr>
                                         <ul>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرمخزن مخروطی']) }}">مخروطی</a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرمخزن استوانه']) }}">استوانه</a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرمخزن مخروطی']) }}"></a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرمخزن استوانه']) }}"></a></li>
                                         </ul>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4 class="block-title"><span>شیرقطع کن</span></h4><hr>
+                                        <h4 class="block-title"><span></span></h4><hr>
                                         <ul>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرقطع کن دستی']) }}">دستی</a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرقظع کن برقی']) }}">برقی</a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرقطع کن دستی']) }}"></a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرقظع کن برقی']) }}"></a></li>
                                         </ul>
                                     </div>
                                 </li>
