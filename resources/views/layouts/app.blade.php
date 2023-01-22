@@ -289,12 +289,9 @@
                         <div class="widget widget-tag-cloud">
                             <h4 class="widget-title">دسته بندی ها</h4>
                             <ul>
-                                <li><a href="#">مخازن</a></li>
-                                <li><a href="#">رگلاتور</a></li>
-                                <li><a href="#">شیر مخزن ها</a></li>
-                                <li><a href="#">شیر قطع کن ها</a></li>
-                                <li><a href="#">جدیدترین ها</a></li>
-                                <li><a href="#">پرفروش ترین ها</a></li>
+                                @foreach ($catagories as $c)
+                                    <li><a href="{{ route('show-catagory-by-name', ['name' => $c->name]) }}">{{ $c->name }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
