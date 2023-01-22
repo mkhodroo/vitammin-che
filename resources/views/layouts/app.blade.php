@@ -203,7 +203,7 @@
                                         <h4 class="block-title"><span>لوسیون و مرطوب کننده</span></h4><hr>
                                         <ul>
                                             <li><a href="{{ route('show-catagory-by-name', ['name' => 'لوسیون و مرطوب کننده بدن']) }}">لوسیون و مرطوب کننده بدن</a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'رگلاتور نسل دو']) }}"></a></li>
+                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'روغن بدن']) }}">روغن بدن</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-md-2">
