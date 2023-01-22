@@ -114,7 +114,8 @@
                 <div class="logo" style="text-align: center">
                     <h3 style="font-weight: bold">
                         <a href="{{ route('home') }}">
-                            <img src="{{ url('public/store/assets/img/logo.png') }}" alt="logo">
+                            ویتامین <span style="color: black">چ</span>
+                            {{-- <img src="{{ url('public/store/assets/img/logo.png') }}" alt="logo"> --}}
                             VITAMIN<span style="color: black">CHE</span>
                         </a>
                     </h3>
