@@ -115,6 +115,7 @@
                     <h3 style="font-weight: bold">
                         <a href="{{ route('home') }}">
                             ویتامین <span style="color: black">چ</span>
+                            <hr>
                             {{-- <img src="{{ url('public/store/assets/img/logo.png') }}" alt="logo"> --}}
                             VITAMIN<span style="color: black">CHE</span>
                         </a>
