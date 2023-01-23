@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if(env('APP_ENV') === 'production') {
             URL::forceScheme('https');
+            Log::info(URL::full());
         }
     }
 }
