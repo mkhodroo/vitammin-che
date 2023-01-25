@@ -193,7 +193,9 @@
 }
 
 .caption > .caption-title{
-  font-size: 15px !important;
+  font-size: 13px !important;
+  font-weight: bold;
+  padding: 0 2px 0 2px !important;
 }
 
 .caption > .rating{
