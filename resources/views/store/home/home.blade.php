@@ -32,53 +32,58 @@
     </style>
 
     <section class="page-section">
-        <div class="swiper newest-products">
-            
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="text-center swiper-slide" >
-                    <img class="width-200" src="{{ url('public/store/assets/img/new-products.png') }}" alt="new-products" style="width: 100%; position: relative; top: -50px">
-              </div>
-                @foreach ($newest_products as $item)
-                    <div class="swiper-slide">
-                        @include('store.products.single',[
-                            'product' => $item
-                        ])
-                    </div>
-                @endforeach 
-              ...
-            </div>
-          
-            <!-- If we need scrollbar -->
-            <div class="swiper-button-next btn btn-default"></div>
-            <div class="swiper-button-prev btn btn-default"></div>
-            <div class="swiper-scrollbar"></div>
-        </div>
+        <div class="col-sm-3">
 
-        <div class="swiper catagories">
-            
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="text-center swiper-slide" >
-                    <h2 class="width-200 white-color yekan-titr">دسته بندی ها</h2>
-                </div>
-                @foreach ($catagories as $c)
-                    <div class="swiper-slide text-center">
-                        <a href="{{ route('show-catagory-by-name', ['name' => $c->name]) }}">
-                            <img class="width-200" src="{{ env('CATAGORIES_IMAGE_URL') . $c->image }}" alt="capsole" style="width: 100%">
-                            <h4 style="font-weight: bold" class="white-color">{{ $c->name }}</h4>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-          
-            <!-- If we need scrollbar -->
-            <div class="swiper-button-next btn btn-default"></div>
-            <div class="swiper-button-prev btn btn-default"></div>
-            <div class="swiper-scrollbar"></div>
         </div>
+        <div class="col-sm-9">
+            <div class="swiper newest-products">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="text-center swiper-slide" >
+                        <img class="width-130" src="{{ url('public/store/assets/img/new-products.png') }}" alt="new-products" style="width: 100%; position: relative; top: -50px">
+                  </div>
+                    @foreach ($newest_products as $item)
+                        <div class="swiper-slide">
+                            @include('store.products.single',[
+                                'product' => $item
+                            ])
+                        </div>
+                    @endforeach 
+                  ...
+                </div>
+              
+                <!-- If we need scrollbar -->
+                <div class="swiper-button-next btn btn-default"></div>
+                <div class="swiper-button-prev btn btn-default"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+    
+            <div class="swiper catagories">
+                
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="text-center swiper-slide" >
+                        <h2 class="width-200 white-color yekan-titr">دسته بندی ها</h2>
+                    </div>
+                    @foreach ($catagories as $c)
+                        <div class="swiper-slide text-center">
+                            <a href="{{ route('show-catagory-by-name', ['name' => $c->name]) }}">
+                                <img class="width-200" src="{{ env('CATAGORIES_IMAGE_URL') . $c->image }}" alt="capsole" style="width: 100%">
+                                <h4 style="font-weight: bold" class="white-color">{{ $c->name }}</h4>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+              
+                <!-- If we need scrollbar -->
+                <div class="swiper-button-next btn btn-default"></div>
+                <div class="swiper-button-prev btn btn-default"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+    
 
         <div class="col-sm-12 text-center " style="border: 1px solid gray; border-radius: 10px">
             <h3 style="color: black; font-weight: bold">
