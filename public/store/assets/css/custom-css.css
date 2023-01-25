@@ -209,3 +209,36 @@
 .btn-compare{
   display: none !important;
 }
+
+img{
+  position: relative;
+  width: 100%;
+}
+
+.mom-child-product{
+  background-color: #AFB266;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 10px;
+  font-family: YekanPlus !important;
+  color: white !important;
+  text-align: center !important;
+}
+
+.mom-child-product h4{
+  color: white !important;
+}
+
+.skin-care-product{
+  background-color: #eb9b34;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 10px;
+  font-family: YekanPlus !important;
+  color: white !important;
+  text-align: center !important;
+}
+
+.skin-care-product h4{
+  color: white !important;
+}
