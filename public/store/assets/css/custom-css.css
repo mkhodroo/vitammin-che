@@ -242,3 +242,11 @@ img{
 .skin-care-product h4{
   color: white !important;
 }
+
+.icon-user img{
+  width: auto !important;
+}
+
+.icon-form img{
+  width: auto !important;
+}
