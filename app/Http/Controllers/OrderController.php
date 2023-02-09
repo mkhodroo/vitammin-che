@@ -59,11 +59,15 @@ class OrderController extends Controller
 
     public function get_order_info_by_order_code($order_code)
     {
-        return Order::where('order_code', $order_code)->get()->each(function($c){
+        $order = Order::where('order_code', $order_code)->get()->each(function($c){
             $c->product_name = $c->producer()->product()->name;
             $c->producer_name = $c->producer()->name;
             $c->store = $c->store();
         });
+        return view('admin.orders.edit')->with([
+            'order_code' => $order_code,
+            'orders' => $order
+        ]);
     }
 
     public function save_order_store(Request $r)

@@ -28,7 +28,7 @@
         </table>
     </div>
 
-    @include('admin.orders.edit')
+    {{-- @include('admin.orders.edit') --}}
 @endsection
 
 @section('script')
@@ -39,6 +39,13 @@
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ],
             "displayLength": 25,
+        });
+
+        $('#example23 tbody').on('dblclick', 'tr', function () {
+            var data = table.row(this).data();
+            url = '{{ route("admin-get-order-info", [ "order_code" => "order_code" ]) }}';
+            url = url.replace("order_code", data[0]);
+            open_modal(url)
         });
 
 

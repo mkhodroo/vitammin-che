@@ -1,59 +1,57 @@
 
 
-<div class="modal fade bs-example-modal-lg" id="edit-modal" tabindex="-1" role="dialog"
-    aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myLargeModalLabel">جزئیات سفارش</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <ul class="nav nav-tabs">
-                        <li class="active" ><a href="#product" data-toggle="tab">سفارش</a></li> |
-                    </ul>
-                    <div class="tab-content">
-                        <div id="product" class="tab-pane active">
-                            <div class="col-sm-12">
-                                <form action="javascript:void(0)" class="" id="edit-form" >
-                                    @csrf
-                                    <div id="info" class="table-responsive">
-                                        <h3>شماره سفارش: <span id="order-code"></span></h3>
-                                        <hr>
-                                        <div>
-                                            @csrf
-                                        </div>
-                                        <table id="order-items" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>محصول</th>
-                                                    <th>انبار</th>
-                                                    <th>تولید کننده</th>
-                                                    <th>تعداد</th>
-                                                    <th>قیمت واحد </th>
-                                                    <th>قیمت</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="order-items-tbody">
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </form>
-                            </div>
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active" ><a href="#product" data-toggle="tab">سفارش {{ $order_code ?? '' }}</a></li> |
+    </ul>
+    <div class="tab-content">
+        <div id="product" class="tab-pane active">
+            <div class="col-sm-12">
+                <form action="javascript:void(0)" class="" id="edit-form" >
+                    @csrf
+                    <div id="info" class="table-responsive">
+                        <h3>شماره سفارش: <span id="order-code"></span></h3>
+                        <hr>
+                        <div>
+                            @csrf
                         </div>
+                        <table id="order-items" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>محصول</th>
+                                    <th>انبار</th>
+                                    <th>تولید کننده</th>
+                                    <th>تعداد</th>
+                                    <th>قیمت واحد </th>
+                                    <th>قیمت</th>
+                                </tr>
+                            </thead>
+                            <?php $total = 0 ?>
+                            @foreach ($orders as $order)
+                                <?php $total += $order->number * $order->price  ?>
+                                <tr>
+                                    <td>{{ $order->producer()->product()->name ?? '' }}</td>
+                                    <td>ویتامین چ</td>
+                                    <td>{{ $order->producer()->name ?? '' }}</td>
+                                    <td>{{ $order->number ?? '' }}</td>
+                                    <td>{{ $order->price ?? '' }}</td>
+                                    <td>{{ $order->number * $order->price ?? '' }}</td>
+                                </tr>
+                            @endforeach
+                            <tr>
+                                <td>{{ __('total') }}</td>
+                                <td>{{ $total }}</td>
+                            </tr>
+                        </table>
                     </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
-<script>
+{{-- <script>
     function get_info(order_code) {
         $.get(`{{ url("admin/orders/get") }}/${order_code}`, function (data) {
             console.log(data);
@@ -109,4 +107,4 @@
 
 
     
-</script>
+</script> --}}
