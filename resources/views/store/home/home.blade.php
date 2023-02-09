@@ -34,28 +34,10 @@
     <section class="page-section">
         <div class="col-sm-3">
             <a href="{{ route('show-catagory-by-part-of-name', ['name' => "محصولات مادر و کودک"]) }}">
-                <div class="col-xs-5 col-sm-12 mom-child-product">
-                    <div class="col-sm-12">
-                        <img src="{{ url('public/store/assets/img/mom-and-child.png') }}" alt="">
-                    </div>
-                    <div class="col-sm-12">
-                        <h4>
-                            محصولات مادر و کودک
-                        </h4>
-                    </div>
-                </div>
+                <img src="{{ url('public/store/assets/img/mom-and-child.png') }}" alt="">
             </a>
             <a href="{{ route('show-catagory-by-part-of-name', ['name' => "محصولات مراقبت از پوست"]) }}">
-                <div class="col-xs-5 col-sm-12 skin-care-product">
-                    <div class="col-sm-12">
-                        <img src="{{ url('public/store/assets/img/skin-care.png') }}" alt="">
-                    </div>
-                    <div class="col-sm-12">
-                        <h4>
-                            محصولات مراقبت از پوست
-                        </h4>
-                    </div>
-                </div>
+                <img src="{{ url('public/store/assets/img/skin-care.png') }}" alt="">
             </a>
         </div>
         <div class="col-sm-9">
