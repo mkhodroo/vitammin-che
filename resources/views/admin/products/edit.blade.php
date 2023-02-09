@@ -30,7 +30,7 @@
                         <tr>
                             <td>{{ __('product catagory') }}</td>
                             <td>
-                                <input type="text" name="catagory" id="catagory" value="{{ $product->catagory()->name ?? '' }}" class="form-control">
+                                <textarea name="catagory" id="catagory" class="form-control" rows="10">{{ $product->catagory()->name ?? '' }}</textarea>
                             </td>
                         </tr>
                     </table>
@@ -98,13 +98,12 @@
             `{{ route('admin-edit-product') }}`,
             data,
             function(data) {
-                console.log(data);
-                alert_notification(data);
+                alert_notification("{{ __('edited') }}");
                 refresh_table(table);
             },
             function(data) {
                 console.log(data);
-                alert_notification(data);
+                alert_notification("{{ __('error') }}");
             }
         )
     }

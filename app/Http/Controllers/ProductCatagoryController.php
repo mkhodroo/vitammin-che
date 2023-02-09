@@ -24,6 +24,12 @@ class ProductCatagoryController extends Controller
         ]);
     }
 
+    public static function add_statically($name){
+        return ProductCatagory::create([
+            'name' => $name
+        ]);
+    }
+
     public function get($id)
     {
         return ProductCatagory::find($id);

@@ -88,14 +88,13 @@ class ProductController extends Controller
 
     public function edit(Request $r)
     {
-        $this->get_user_product($r->id, Auth::id())->update([
+        $cat = ProductCatagoryController::add_statically($r->catagory);
+        $p = $this->get_user_product($r->id, Auth::id())->update([
             'name' => $r->name,
-            'product_catagory_id' => $r->product_catagory_id,
+            'product_catagory_id' => $cat->id,
         ]);
-        // $product_price = new ProductPriceController();
-        // $product_price->add($r->id, $r->price);
 
-        return response('محصول ویرایش شد.');
+        return $p;
     }
 
     public function newest_products()
