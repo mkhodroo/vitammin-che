@@ -25,14 +25,14 @@ class ProductProducerController extends Controller
     {
         $producer = ProductProducer::updateOrCreate(
             [
-                'id' => $r->producer_id,
+                'product_id' => $r->product_id,
                 'name' => $r->name,
                 'seller_name' => $r->seller_name,
             ]
         );
         ProductPrice::create([
             'product_id' => $r->product_id,
-            'product_producer_id' => $r->producer_id,
+            'product_producer_id' => $producer->id,
             'price' => $r->price
         ]);
         

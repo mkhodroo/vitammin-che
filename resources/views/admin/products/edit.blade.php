@@ -48,7 +48,6 @@
             <?php $producer = $product->producer(); ?>
             <form action="javascript:void(0)" class="" id="producer-info-form" >
                 @csrf
-                <input type="hidden" name="producer_id" id="" value="{{ $producer->id ?? '' }}">
                 <input type="hidden" name="product_id" id="" value="{{ $product->id ?? '' }}">
                 <div id="producer-info table-responsive">
                     <table class="table table-responsive" id="list" class="table">
@@ -66,7 +65,7 @@
                                 <input type="text" name="seller_name" id="seller_name" value="{{ $producer->seller_name ?? '' }}">
                             </td>
                             <td>
-                                <input type="text" name="price" id="price" value="{{ $producer->price()->price ?? '' }}">
+                                <input type="text" name="price" id="price" value="{{ $producer?->price()->price ?? '' }}">
                             </td>
                         </tr>
                         <tr>
@@ -114,6 +113,7 @@
             `{{ route('admin-edit-product-producer') }}`,
             data,
             function(data) {
+                console.log(data);
                 alert_notification("{{ __('edited') }}");
                 url = '{{ route("admin-edit-product-form", [ "id" => "id" ]) }}';
                 url = url.replace("id", data.id);
