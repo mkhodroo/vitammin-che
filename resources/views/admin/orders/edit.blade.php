@@ -11,7 +11,7 @@
                 <form action="javascript:void(0)" class="" id="edit-form" >
                     @csrf
                     <div id="info" class="table-responsive">
-                        <h3>شماره سفارش: <span id="order-code"></span></h3>
+                        <h3>شماره سفارش: <span id="order-code">{{ $order_code ?? '' }}</span></h3>
                         <hr>
                         <div>
                             @csrf
@@ -42,6 +42,21 @@
                             <tr>
                                 <td>{{ __('total') }}</td>
                                 <td>{{ $total }}</td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-striped">
+                            <tr>
+                                <td>{{ __('customer name') }}</td>
+                                <td>{{ $order->first()->user()->name ?? '' }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ __('customer address') }}</td>
+                                <td>
+                                    {{ $order->first()->customer_address()->city()->province }} - 
+                                    {{ $order->first()->customer_address()->city()->city }} - 
+                                    {{ $order->first()->customer_address()->address }}
+                                </td>
                             </tr>
                         </table>
                     </div>

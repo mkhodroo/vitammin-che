@@ -23,4 +23,12 @@ class Order extends Model
     {
         return Store::find($this->store_id);
     }
+
+    public function customer_address(){
+        return CustomerAddress::find($this->customer_address_id);
+    }
+
+    public function user(){
+        return User::find($this->user_id);
+    }
 }
