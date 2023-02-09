@@ -23,31 +23,29 @@ class ProductProducerController extends Controller
 
     public function edit(Request $r)
     {
-        $price = new ProductPriceController();
-        for($i=0; $i >= 0; $i++){
-            $input_id = "list-id_$i";
-            $input_name = "list-name_$i";
-            $input_seller_name = "list-seller-name_$i";
-
-            if( $r->get($input_name) == null ){
-                break;
-            }
-            
-            if($r->$input_id !== null){
-                $producer = $this->get($r->$input_id);
-                $producer->update([
-                    'name' => $r->$input_name,
-                    'seller_name' => $r->$input_seller_name
-                ]);
-            }else{
-                $producer = $this->add($r->product_id, $r->$input_name, $r->$input_seller_name);
-            }
-            // $price->add($r->product_id, $r->$input_price, $producer->id);
-        }
-        return response('قیمت برای تولیدکنندگان ذخیره شد');
+        ProductProducer::updateOrCreate(
+            [
+                'id' => $r->producer_id,
+                'name' => $r->name,
+                'seller_name' => $r->seller_name,
+            ]
+        );
+        ProductPrice::create([
+            'product_id' => $r->prodcut_id,
+            'producer_id' => $r->producer_id,
+            'price' => $r->price
+        ]);
+        
+        return response('ذخیره شد');
     }
 
     public function get($id)
+    {
+        $pp = ProductProducer::find($id);
+        return $pp;
+    }
+
+    public static function get_statically($id)
     {
         $pp = ProductProducer::find($id);
         return $pp;

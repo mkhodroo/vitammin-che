@@ -52,6 +52,12 @@ class ProductPriceController extends Controller
         return ProductPrice::producer_prices($producer_id);
     }
 
+    public function edit_form($producer_id){
+        return view('admin.products.edit-price')->with([
+            'producer' => ProductProducerController::get_statically($producer_id)
+        ]);
+    }
+
     public function add_with_file(Request $r)
     {
         $file = $r->file('file');

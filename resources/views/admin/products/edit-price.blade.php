@@ -1,4 +1,5 @@
-<div class="modal fade bs-example-modal-lg" id="price-modal" role="dialog"
+
+<div class="modal fade bs-example-modal-lg" id="price-{{$producer->id ?? ''}}-modal" role="dialog"
     aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none; z-index: 1062 !important;">
     <div class="modal-dialog modal-lg">
         <div class="modal-content" style="background: rgb(195, 219, 225)">
@@ -61,27 +62,6 @@
         }
 
     
-    function open_price_modal(producer_id){
-        var url = "{{ route('admin-get-producer-price', [ 'producer_id' => 'producer_id' ]) }}";
-        url = url.replace('producer_id', producer_id);
-        $.get(url, function(data){
-            var prices = $("#prices");
-            prices.html("");
-            data.forEach(function(item){
-                console.log(item);
-                prices.append(`<tr>`)
-                prices.append(`<td>${item.price}</td>`)
-                prices.append(`<td>${item.agency_price}</td>`)
-                prices.append(`<td>${item.min_agency_number}</td>`)
-                prices.append(`<td>${item.wholesaler_price}</td>`)
-                prices.append(`<td>${item.min_wholesaler_number}</td>`)
-                prices.append(`</tr>`)
-            })
-        })
-        $("#price-form #product_producer_id").val(producer_id);
-        $('#add-price').attr('onclick', `add_price(${producer_id})`);
-        $("#price-modal").modal("show");
-    }
 
     function close_price_modal(){
         $("#price-modal").modal("hide");

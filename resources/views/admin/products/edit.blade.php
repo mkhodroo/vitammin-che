@@ -1,108 +1,135 @@
-@include('admin.products.edit-price')
-@include('admin.products.edit-feature')
 
 
-<div class="modal fade bs-example-modal-lg" id="edit-product-modal" tabindex="-1" role="dialog"
-    aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myLargeModalLabel">ویرایش محصول</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <ul class="nav nav-tabs">
-                        <li class="active" ><a href="#product" data-toggle="tab">محصول</a></li> |
-                        <li class="" ><a href="#producer" data-toggle="tab">تولیدکنندگان</a></li> |
-                        <li><a href="#images" data-toggle="tab">تصاویر</a></li> |
-                    </ul>
-                    <div class="tab-content">
-                        <div id="product" class="tab-pane active">
-                            <div class="col-sm-12">
-                                <form action="javascript:void(0)" class="" id="edit-product-form" >
-                                    @csrf
-                                    <div id="info">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="col-sm-12">
-                                <button class="btn btn-success" onclick="edit_product()">ثبت تغییرات</button>
-                            </div>
-                        </div>
-                        <div id="producer" class="tab-pane fade">
-                            <form action="javascript:void(0)" class="" id="producer-info-form" >
-                                @csrf
-                                <div id="producer-info table-responsive">
-                                    <table class="table table-responsive" id="list" class="table">
-                                        <thead>
-                                          <tr>
-                                            <th>شناسه</th>
-                                            <th>تولید کننده</th>
-                                            <th> فروشنده</th>
-                                            <th>ویژگی</th>
-                                            <th>قیمت</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="producer-info-tbody">
-                                          <tr class="list_var">
-                                            <td>
-                                                <input type="text" name="list-id_0" id="list-id_0" readonly>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="list-name_0" id="list-name_0">
-                                            </td>
-                                            <td><input type="text" name="list-seller-name_0" id="list-seller-name_0"></td>
-                                            <td><button class="btn btn-success" name="list-feature_0" id="list-feature_0"></button></td>
-                                            <td><button class="btn btn-info" name="list-price_0" id="list-price_0"></button></td>
-                                            <td class="del-area"><button class="list_del">Delete</button></td>
-                                          </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td>
-                                                    <input type="button" value="Add" class="list_add btn btn-warning">
-                                                </td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <button class="btn btn-success" onclick="edit_product_producer_info()">ثبت تغییرات</button>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                      </table>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="images" class="tab-pane fade">
-                            <table class="table table-responsive table-stripped">
-                                <tbody id="product-images">
-                                </tbody>
-                            </table>
-                            <form action="{{ route('add-product-image') }}" id="product-image-form" class="dropzone" enctype="multipart/form-data">
-                                @csrf
-                                @include('inputs.hidden',[
-                                    'name' => 'id',
-                                    'id' => 'product_id'
-                                ])
-                            </form>
-                        </div>
+<div>
+    <h4>
+        {{ $product->name ?? '' }}
+    </h4><hr>
+</div>
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active" ><a href="#product" data-toggle="tab">محصول</a></li> |
+        <li class="" ><a href="#producer" data-toggle="tab">تولیدکنندگان</a></li> |
+        <li><a href="#images" data-toggle="tab">تصاویر</a></li> |
+    </ul>
+    <div class="tab-content">
+
+
+        <div id="product" class="tab-pane active">
+            <div class="col-sm-12">
+                <form action="javascript:void(0)" class="" id="edit-product-form" >
+                    @csrf
+                    <input type="hidden" name="id" id="id" value="{{ $product->id ?? '' }}">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>{{ __('product name') }}</td>
+                            <td>
+                                <input type="text" name="name" id="name" value="{{ $product->name ?? '' }}" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{{ __('product catagory') }}</td>
+                            <td>
+                                <input type="text" name="catagory" id="catagory" value="{{ $product->catagory()->name ?? '' }}" class="form-control">
+                            </td>
+                        </tr>
+                    </table>
+                    <div id="info">
                     </div>
+                </form>
+            </div>
+            <div class="col-sm-12">
+                <button class="btn btn-success" onclick="edit_product()">{{ __('save') }}</button>
+            </div>
+        </div>
+
+
+        <div id="producer" class="tab-pane fade">
+            <?php $producer = $product->producer(); ?>
+            <form action="javascript:void(0)" class="" id="producer-info-form" >
+                @csrf
+                <input type="hidden" name="producer_id" id="" value="{{ $producer->id ?? '' }}">
+                <input type="hidden" name="product_id" id="" value="{{ $product->id ?? '' }}">
+                <div id="producer-info table-responsive">
+                    <table class="table table-responsive" id="list" class="table">
+                        <tr>
+                            <th>تولید کننده</th>
+                            <th> فروشنده</th>
+                            <th>قیمت</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="name" id="name" value="{{ $producer->name ?? '' }}">
+                            </td>
+                            <td>
+                                <input type="text" name="seller_name" id="seller_name" value="{{ $producer->seller_name ?? '' }}">
+                            </td>
+                            <td>
+                                <input type="text" name="price" id="price" value="{{ $producer->price()->price ?? '' }}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btn btn-success" onclick="edit_product_producer_info()">ثبت تغییرات</button>
+                            </td>
+                        </tr>
+                        </table>
                 </div>
-                
-                
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
-            </div>
+            </form>
+        </div>
+
+
+
+        <div id="images" class="tab-pane fade">
+            <form action="{{ route('add-product-image') }}" id="product-image-form" class="dropzone" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
+            </form>
         </div>
     </div>
 </div>
-
+                
+                
 <script>
+    function edit_product() {
+        var data = $('#edit-product-form').serialize();
+        send_ajax_request(
+            `{{ route('admin-edit-product') }}`,
+            data,
+            function(data) {
+                console.log(data);
+                alert_notification(data);
+                refresh_table(table);
+            },
+            function(data) {
+                console.log(data);
+                alert_notification(data);
+            }
+        )
+    }
+
+    function edit_product_producer_info() {
+        var data = $('#producer-info-form').serialize()
+        send_ajax_request(
+            `{{ route('admin-edit-product-producer') }}`,
+            data,
+            function(data) {
+                alert_notification(data);
+            },
+            function(data){
+                alert_notification(data);
+            }
+        )
+    }
+
+    create_dropzone(
+        'product-image-form',
+        init = '{{ $product->image()->image ?? '' }}'
+    )
+</script>
+
+{{-- <script>
     function get_info(id) {
         $.get(`{{ url("admin/products/get") }}/${id}`, function (data) {
             console.log(data);
@@ -184,40 +211,9 @@
         })
     }
 
-    function edit_product() {
-        $.ajax({
-            url: `{{ route('admin-edit-product') }}`,
-            data: $('#edit-product-form').serialize(),
-            processData: false,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            method: 'post',
-            success: function(data) {
-                console.log(data);
-                alert_notification(data);
-                refresh_table();
-            }
-        })
-    }
+    
 
-    function edit_product_producer_info() {
-        $.ajax({
-            url: `{{ route('admin-edit-product-producer') }}`,
-            data: $('#producer-info-form').serialize(),
-            processData: false,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            method: 'post',
-            success: function(data) {
-                console.log(data);
-                alert_notification(data);
-                var product_id = $('input[name="product_id"]').val();
-                get_info(product_id);
-            }
-        })
-    }
+    
 
 
     $('#list').addInputArea({
@@ -225,4 +221,4 @@
     });
 
     
-</script>
+</script> --}}

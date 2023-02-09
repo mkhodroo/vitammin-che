@@ -47,6 +47,11 @@ class Product extends Model
         return ProductImage::where('product_id', $this->id)->get();
     }
 
+    public function image()
+    {
+        return ProductImage::where('product_id', $this->id)->orderBy('id', 'desc')->first();
+    }
+
     public function main_image()
     {
         return ProductImage::where('product_id', $this->id)->first();
@@ -55,6 +60,11 @@ class Product extends Model
     public function producers()
     {
         return ProductProducer::where('product_id', $this->id)->get();
+    }
+
+    public function producer()
+    {
+        return ProductProducer::where('product_id', $this->id)->first();
     }
 
     public function catagory()

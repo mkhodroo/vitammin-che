@@ -25,19 +25,15 @@
     </div>
 
     @include('admin.products.add')
-    @include('admin.products.edit')
+    {{-- @include('admin.products.edit') --}}
 @endsection
 
 @section('script')
     <script>
-        var table = $('#example23').DataTable({
-            dom: 'Bfrtip',
-            order: [[0, 'desc']],
-            ajax: {
-                url: '{{ route("admin-products-get-list") }}',
-                dataSrc: '',
-            },
-            columns: [
+        create_datatable(
+            'example23',
+            '{{ route("admin-products-get-list") }}',
+            [
                 { data: 'id' },
                 { data: 'image', 
                     render: function(data){
@@ -49,17 +45,18 @@
                 { data: 'inventory' },
                 { data: 'updated_at' },
                 { data: 'created_at' }
-            ],
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ],
-            "displayLength": 25,
-        });
+            ]
+        )
+        
 
         $('#example23 tbody').on('dblclick', 'tr', function () {
             var data = table.row(this).data();
-            get_info(data['id']);
+            url = '{{ route("admin-edit-product-form", [ "id" => "id" ]) }}';
+            url = url.replace("id", data.id);
+            open_modal(url)
+            // get_info(data['id']);
         });
+
 
 
         function open_add_modal() {

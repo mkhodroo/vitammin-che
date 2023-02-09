@@ -17,16 +17,10 @@ class ProductImageController extends Controller
 
     public function add(Request $r)
     {
-        $image = $r->file('file');
-        $imageName = RandomStringController::Generate() . '.png';
-        Log::info('image name: '. $imageName);
-        $image->move($this->product_image_path,$imageName);
-        
-        $image_upload = ProductImage::create([
-            'product_id' => $r->id,
-            'image_url' => $imageName
+        ProductImage::create([
+            'product_id' => $r->product_id,
+            'image' => base64_encode(file_get_contents($r->file('file')->getRealPath()))
         ]);
-        Log::info('image url : '. $image_upload->image_url);
         return response('تصویر اضافه شد.');
     }
 

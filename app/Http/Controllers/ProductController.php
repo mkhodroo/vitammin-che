@@ -80,6 +80,12 @@ class ProductController extends Controller
         return Product::where('id', $product_id)->where('user_id', $user_id)->first();
     }
 
+    public function edit_form($id){
+        return view('admin.products.edit')->with([
+            'product' => $this->get(null, $id)
+        ]);
+    }
+
     public function edit(Request $r)
     {
         $this->get_user_product($r->id, Auth::id())->update([

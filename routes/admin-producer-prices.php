@@ -10,7 +10,7 @@ Route::prefix('/prices')->group(function(){
     Route::get('/list', [ProductProducerController::class, 'show_list'])->name('admin-prices-show-list');
     Route::get('/get-prices-data', [ProductProducerController::class, 'get_prices_data'])->name('admin-get-prices-data');
     Route::post('add-with-file', [ProductPriceController::class, 'add_with_file'])->name('admin-add-price-with-file');
-    Route::any('/get/{producer_id}', [ProductPriceController::class, 'get'])->name('admin-get-producer-price');
+    Route::any('/get/{producer_id}', [ProductPriceController::class, 'edit_form'])->name('admin.producer-price.edit_form');
     Route::post('/add', [ProductPriceController::class, 'add_with_request'])->name('admin-add-producer-price');
 
 });
