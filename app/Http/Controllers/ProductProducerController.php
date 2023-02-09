@@ -23,7 +23,7 @@ class ProductProducerController extends Controller
 
     public function edit(Request $r)
     {
-        ProductProducer::updateOrCreate(
+        $producer = ProductProducer::updateOrCreate(
             [
                 'id' => $r->producer_id,
                 'name' => $r->name,
@@ -31,12 +31,12 @@ class ProductProducerController extends Controller
             ]
         );
         ProductPrice::create([
-            'product_id' => $r->prodcut_id,
-            'producer_id' => $r->producer_id,
+            'product_id' => $r->product_id,
+            'product_producer_id' => $r->producer_id,
             'price' => $r->price
         ]);
         
-        return response('ذخیره شد');
+        return $producer->product();
     }
 
     public function get($id)

@@ -115,10 +115,14 @@
             `{{ route('admin-edit-product-producer') }}`,
             data,
             function(data) {
-                alert_notification(data);
+                alert_notification("{{ __('edited') }}");
+                url = '{{ route("admin-edit-product-form", [ "id" => "id" ]) }}';
+                url = url.replace("id", data.id);
+                open_modal(url)
+                refresh_table(table);
             },
             function(data){
-                alert_notification(data);
+                alert_notification("{{ __('error') }}");
             }
         )
     }
