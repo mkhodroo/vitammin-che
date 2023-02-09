@@ -3,7 +3,7 @@
     <div class="sigle-product-content" style="background: #f2fcfc ; border-radius: 8px">
         <div class="thumbnail no-border no-padding">
             <div class="media" style="padding: 5px">
-                <?php $image_url = env('PRODUCTS_IMAGE_URL') . $product->main_image()?->image_url ?>
+                <?php $image_url = "data:image/png;base64,". $product->image()?->image ?>
                 <a class="media-link" data-gal="prettyPhoto" href="{{ $image_url ?? '' }}">
                     <img src='{{ $image_url ?? '' }}' alt=""/>
                     <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>

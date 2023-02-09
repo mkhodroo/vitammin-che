@@ -4,7 +4,7 @@
     <section class="page-section">
         <div class="col-sm-4">
             <img 
-            src="{{ env('PRODUCTS_IMAGE_URL') . $product->main_image()?->image_url  }}" 
+            src="{{ "data:image/png;base64," . $product->image()?->image  }}" 
             alt="{{ $product->name }}"
             width="100%">
         </div>
