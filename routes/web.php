@@ -45,7 +45,7 @@ Route::get('event', function(){
 
 Route::get('build-app', function () {
     Artisan::call('cache:clear');
-    // Artisan::call('migrate');
+    Artisan::call('migrate');
     return 'done';
 });
 
