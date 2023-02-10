@@ -13,7 +13,7 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Image</th>
+                    <th width="100">Image</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Inventory</th>
@@ -37,7 +37,7 @@
                 { data: 'id' },
                 { data: 'image', 
                     render: function(data){
-                        return `<img src="${data}" width="150">`;
+                        return `<img src="data:image/png;base64,${data}" width="100">`;
                     } 
                 },
                 { data: 'name' },

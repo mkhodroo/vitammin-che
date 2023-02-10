@@ -44,7 +44,7 @@ class ProductController extends Controller
         return Product::where('user_id', Auth::id())->get()->each(function($c)use($pInventoryCont){
             $c->price = $c->min_price()?->price;
             $c->inventory = $pInventoryCont->get_product_inventory($c->id);
-            $c->image = env('PRODUCTS_IMAGE_URL') . '/' .$c->main_image()?->image_url;
+            $c->image = $c->image()?->image;
         });
     }
 
