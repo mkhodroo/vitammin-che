@@ -292,7 +292,7 @@
                             <ul id="footer-catagory">
                                 <script>
                                     $.get('{{ route("get-product-catagories") }}', function(data){
-                                        console.log(data);
+                                        // console.log(data);
                                         var d = $('#footer-catagory');
                                         var url = "{{ route('show-catagory-by-name', ['name' => 'cat_name' ]) }}"
                                         data.forEach(function(item){

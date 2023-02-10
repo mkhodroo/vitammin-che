@@ -14,7 +14,7 @@ class ProductCatagoryController extends Controller
 
     public function get_catagories()
     {
-        return ProductCatagory::get();
+        return ProductCatagory::take(7)->get();
     }
 
     public function add(Request $r)
