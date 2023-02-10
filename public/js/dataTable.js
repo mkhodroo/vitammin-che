@@ -21,5 +21,5 @@ function dblclick_on_inbox_row(element_id,  table, callback){
 }
 
 function refresh_table(table){
-    table.ajax.reload();
+    table.ajax.reload( null, false);
 }
