@@ -65,9 +65,6 @@
         function close_add_modal() {
             $('#add-product-modal').modal('hide');
         }
-        function refresh_table(){
-            table.ajax.reload();
-        }
 
         
     </script>
