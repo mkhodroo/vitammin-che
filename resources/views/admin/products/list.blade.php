@@ -30,7 +30,7 @@
 
 @section('script')
     <script>
-        create_datatable(
+        var table = create_datatable(
             'example23',
             '{{ route("admin-products-get-list") }}',
             [
