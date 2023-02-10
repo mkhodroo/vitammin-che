@@ -23,3 +23,7 @@
         </tr>
     @endforeach
 </table>
+
+<script>
+    camma_sep()
+</script>

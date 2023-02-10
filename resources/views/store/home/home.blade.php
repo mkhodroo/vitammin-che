@@ -133,7 +133,7 @@
             if(w >= 1200){
                 spv = 4.5;
             }
-            console.log(spv);
+            // console.log(spv);
             var swiper = new Swiper(".swiper", {
                 slidesPerView: spv,
                 spaceBetween: 40,
