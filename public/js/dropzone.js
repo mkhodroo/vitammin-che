@@ -25,10 +25,4 @@ function create_dropzone(element_id, init = null, acceptedFiles = null, name = '
             console.log(response);
         },
     });
-
-    myDropzone.on("sending", function(file, xhr, formData) {
-        // Will send the filesize along with the file as POST data.
-        formData.append("filesize", file.size);
-        formData.append("fileName", `${element_id}`);
-   });
 }

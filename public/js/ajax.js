@@ -21,13 +21,12 @@ function send_ajax_get_request(url, callback){
     return $.ajax({
         url: url,
         processData: false,
-        async: false,
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         method: 'get',
-        complete: function(){
-            hide_loading();
+        success: function(){
+            hide_loading()
         }
     })
     .done(callback)
@@ -38,7 +37,6 @@ function send_ajax_get_request_with_confirm(url, callback, message = "Are you su
         return $.ajax({
                 url: url,
                 processData: false,
-                async: false,
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
