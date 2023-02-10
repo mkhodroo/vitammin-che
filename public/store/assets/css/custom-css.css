@@ -254,3 +254,7 @@ img{
 .center-vertical{
   vertical-align:middle !important;
 }
+
+.margin-tb-10{
+  margin: 10px 0 10px 0 !important;
+}

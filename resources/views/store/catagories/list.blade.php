@@ -1,3 +1,6 @@
+<div class="text-center red-back white-color">
+    {{ $catagory }}
+</div>
 <table class="table table-striped">
     @if (!count($products))
         هیچ محصولی در این دسته بندی یافت نشد

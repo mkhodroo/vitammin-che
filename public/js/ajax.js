@@ -1,4 +1,5 @@
 function send_ajax_request(url, data, callback, erCallback){
+    show_loading()
     return $.ajax({
         url: url,
         data: data,
@@ -7,12 +8,16 @@ function send_ajax_request(url, data, callback, erCallback){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         method: 'post',
+        complete: function(){
+            hide_loading();
+        }
     })
     .done(callback)
-    .catch(erCallback);
+    .catch(erCallback)
 }
 
 function send_ajax_get_request(url, callback){
+    show_loading()
     return $.ajax({
         url: url,
         processData: false,
@@ -21,8 +26,11 @@ function send_ajax_get_request(url, callback){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         method: 'get',
+        complete: function(){
+            hide_loading();
+        }
     })
-    .done(callback);
+    .done(callback)
 }
 
 function send_ajax_get_request_with_confirm(url, callback, message = "Are you sure?"){
@@ -35,6 +43,9 @@ function send_ajax_get_request_with_confirm(url, callback, message = "Are you su
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 method: 'get',
+                complete: function(){
+                    hide_loading();
+                }
             })
             .done(callback);
     } else {
@@ -50,6 +61,14 @@ function open_modal(url){
             $('#modal').modal('show')
         }
     )
+}
+
+function show_loading(){
+    $('#preloader').show();
+}
+
+function hide_loading(){
+    $('#preloader').hide();
 }
 
 // document.addEventListener('keydown', e => {

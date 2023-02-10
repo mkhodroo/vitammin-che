@@ -33,10 +33,10 @@
 
     <section class="page-section">
         <div class="col-sm-3">
-            <div onclick="show_catagory_by_part_of_name('محصولات مادر و کودک')">
+            <div class="margin-tb-10" onclick="show_catagory_by_part_of_name('محصولات مادر و کودک')">
                 <img src="{{ url('public/store/assets/img/mom-and-child.png') }}" alt="">
             </div>
-            <div onclick="show_catagory_by_part_of_name('محصولات مراقبت از پوست')">
+            <div class="margin-tb-10" onclick="show_catagory_by_part_of_name('محصولات مراقبت از پوست')">
                 <img src="{{ url('public/store/assets/img/skin-care.png') }}" alt="">
             </div>
         </div>
@@ -119,7 +119,6 @@
 
         
           <script>
-            console.log('{{ $newest_posts }}');
             var w = window.innerWidth;
             var spv = 3
             if(w <= 600){
