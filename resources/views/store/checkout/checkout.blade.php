@@ -105,7 +105,7 @@
                 },
                 method: 'post',
                 url: `{{ route('pay') }}`,
-                data: fd,
+                data: { amount: "35000", name: "mohammad" },
                 processData: false,
                 contentType: false,
                 success: function (data) {

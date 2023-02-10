@@ -250,3 +250,7 @@ img{
 .icon-form img{
   width: auto !important;
 }
+
+.center-vertical{
+  vertical-align:middle !important;
+}

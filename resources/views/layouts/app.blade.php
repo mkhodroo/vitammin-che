@@ -42,6 +42,9 @@
 />
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="{{ url('public/js/ajax.js') }}"></script>
+<script src="{{ url('public/js/dataTable.js') }}"></script>
+<script src="{{ url('public/js/dropzone.js') }}"></script>
 
 
     
@@ -345,6 +348,8 @@
 <!--<![endif]-->
 
 <!-- Custome JS -->
+@include('js.store')
+
 
 <script>
     $(".select2").select2();

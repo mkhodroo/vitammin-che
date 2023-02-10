@@ -33,14 +33,14 @@
 
     <section class="page-section">
         <div class="col-sm-3">
-            <a href="{{ route('show-catagory-by-part-of-name', ['name' => "محصولات مادر و کودک"]) }}">
+            <div onclick="show_catagory_by_part_of_name('محصولات مادر و کودک')">
                 <img src="{{ url('public/store/assets/img/mom-and-child.png') }}" alt="">
-            </a>
-            <a href="{{ route('show-catagory-by-part-of-name', ['name' => "محصولات مراقبت از پوست"]) }}">
+            </div>
+            <div onclick="show_catagory_by_part_of_name('محصولات مراقبت از پوست')">
                 <img src="{{ url('public/store/assets/img/skin-care.png') }}" alt="">
-            </a>
+            </div>
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-9" id="main-content">
             <div class="swiper newest-products">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
