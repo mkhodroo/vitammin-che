@@ -56,7 +56,7 @@ class CartController extends Controller
         return $total;
     }
 
-    public function delete_user_cart_items()
+    public static function delete_user_cart_items()
     {
         Cart::where('user_id', Auth::id())->delete();
     }

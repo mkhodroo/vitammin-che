@@ -43,6 +43,7 @@ return array(
     'App\\Http\\Controllers\\SearchController' => $baseDir . '/app/Http/Controllers/SearchController.php',
     'App\\Http\\Controllers\\SmsController' => $baseDir . '/app/Http/Controllers/SmsController.php',
     'App\\Http\\Controllers\\StoreController' => $baseDir . '/app/Http/Controllers/StoreController.php',
+    'App\\Http\\Controllers\\ZarinpalController' => $baseDir . '/app/Http/Controllers/ZarinpalController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Access' => $baseDir . '/app/Http/Middleware/Access.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

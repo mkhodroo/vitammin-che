@@ -75,10 +75,10 @@
             <fieldset style="background: lightblue; margin: 10px; padding: 5px">
                 <legend style="background: rgb(0, 177, 106)">نحوه پرداخت</legend>
                 <div class="col-sm-12">
-                    <input type="radio" name="payment_status" id="online" value="online" disabled>پرداخت آنلاین
+                    <input type="radio" name="payment_status" id="online" value="online" >پرداخت آنلاین
                 </div>
                 <div class="col-sm-12">
-                    <input type="radio" name="payment_status" id="offline" value="offline">پرداخت حضوری
+                    <input type="radio" name="payment_status" id="offline" value="offline" disabled>پرداخت حضوری
                 </div>
                 <div class="col-sm-12">
                     <button class="btn btn-danger" onclick="pay()">تایید سفارش</button>
@@ -105,13 +105,13 @@
                 },
                 method: 'post',
                 url: `{{ route('pay') }}`,
-                data: { amount: "35000", name: "mohammad" },
+                data: fd,
                 processData: false,
                 contentType: false,
                 success: function (data) {
                     console.log(data);
-                    alert_notification(data);
-                    window.location = '{{ route("my-orders") }}';
+                    alert_notification('به درگاه پرداخت منتقل میشوید');
+                    window.location = data;
                     hide_loading();
                 }
             })

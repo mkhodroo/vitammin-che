@@ -7,6 +7,8 @@ use App\Models\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+
 
 class CheckoutController extends Controller
 {
@@ -25,23 +27,38 @@ class CheckoutController extends Controller
 
     public function pay(Request $r )
     {
-        $carts = new CartController();
+        $orderController = new OrderController();
         $order_code = $this->create_new_order_code();
-        foreach($carts->get_user_cart_items() as $item){
-            $order = Order::create([
-                'order_code' => $order_code,
-                'product_producer_id' => $item->producer()->id,
-                'price' => $item->price()->showing_price,
-                'number' => $item->number,
-                'user_id' => Auth::id(),
-                'how_to_send' => $r->how_to_send,
-                'customer_address_id' => $r->address,
-                'payment_status' => $r->payment_status,
+        OrderController::add_user_cart_items_to_order($order_code, $r->how_to_send, $r->address, $r->payment_status);
+        
+        $this->increase_last_order_number();
+        CartController::delete_user_cart_items();
+
+        
+        
+
+        // if($r->payment_status === 'online'){
+            $total_price = $orderController->get_order_total_price_by_order_code($order_code);
+            $payment_authority = ZarinpalController::get_authority($total_price);
+            $orderController->set_payment_authority_for_order_by_order_code($order_code, $payment_authority);
+            return ZarinpalController::go_to_pay($payment_authority);
+        // }
+        return null;
+    }
+
+    public function verify_online_pay($amount)
+    {
+        $result = ZarinpalController::verify($amount);
+        if($result['refID']){
+            $orderController = new OrderController();
+            OrderController::set_payment_tracking_number_for_order_by_authority($result['authority'], $result['refID']);
+            return view('store.checkout.verify-pay')->with([
+                'message' => "پرداخت با موفیت انجام شد. کد رهگیری : " . $result['refID']
             ]);
         }
-        $this->increase_last_order_number();
-        $carts->delete_user_cart_items();
-        return response("سفارش شما با کد پیگیری $order_code ثبت شد. و در حال پردازش می باشد");
+        return view('store.checkout.verify-pay')->with([
+            'error' => "خطا در انجام تراکنش"
+        ]);
     }
 
     public function create_new_order_code()

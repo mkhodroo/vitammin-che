@@ -11,4 +11,5 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/checkout')->group(function(){
     Route::any('', [CheckoutController::class, 'index'])->name('checkout');
     Route::any('/pay', [CheckoutController::class, 'pay'])->name('pay');
+    Route::any('/pay/verify/{amount}', [CheckoutController::class, 'verify_online_pay'])->name('verify-online-pay');
 });

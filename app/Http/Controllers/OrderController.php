@@ -80,4 +80,46 @@ class OrderController extends Controller
         $product_inventory->insert_order_record($o->product_producer_id, $o->store_id, $des, -$o->number);
         return $o;
     }
+
+    public static function get_orders_by_authority($authority){
+        return Order::where('authority', $authority)->get();
+    }
+
+    public static function set_payment_tracking_number_for_order_by_authority($authority, $refID){
+        $orders = self::get_orders_by_authority($authority);
+        foreach($orders as $order){
+            $order->payment_tracking_number = $refID;
+            $order->save();
+        }
+    }
+
+    public static function add_user_cart_items_to_order($order_code, $how_to_send, $address_id, $payment_status){
+        $cart_items = (new CartController())->get_user_cart_items();
+        foreach($cart_items as $item){
+            Order::create([
+                'order_code' => $order_code,
+                'product_producer_id' => $item->producer()->id,
+                'price' => $item->producer()->price()->price,
+                'number' => $item->number,
+                'user_id' => Auth::id(),
+                'how_to_send' => $how_to_send,
+                'customer_address_id' => $address_id,
+                'payment_status' => $payment_status
+            ]);
+        }
+    }
+
+    public function get_order_total_price_by_order_code($order_code){
+        return Order::where('order_code', $order_code)->sum('price');
+    }
+
+    public function set_payment_authority_for_order_by_order_code($order_code, $authority)
+    {
+        Order::where('order_code', $order_code)->update([ 'authority' => $authority ]);
+    }
+
+    public function set_payment_tracking_number_for_order_by_order_code($order_code, $refID)
+    {
+        Order::where('order_code', $order_code)->update([ 'payment_tracking_number' => $refID ]);
+    }
 }
