@@ -27,7 +27,7 @@ class SmsController extends Controller
       ),);
 
       $response = curl_exec($curl);
-      Log::info(curl_error($curl));
+      // Log::info(curl_error($curl));
 
       curl_close($curl);
       return $response;
