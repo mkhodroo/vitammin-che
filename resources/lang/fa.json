@@ -1,6 +1,12 @@
 {
     "customer address": "آدرس مشتری",   
     "customer name": "نام مشتری",   
-    "total": "مجموع"   
+    "total": "مجموع",
+    "cancel": "انصراف",
+    "ok": "موفقیت آمیز",
+    "pending": "در حال پردازش",
+    "error": "خطا",
+    "transaction status": "وضعیت تراکنش",
+    "delivery status": "وضعیت ارسال"
 
 }

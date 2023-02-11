@@ -28,7 +28,7 @@ class OrderController extends Controller
 
     public function get_orders_groupBy_order_code()
     {
-        return Order::where('user_id', Auth::id())->select('order_code')->groupBy('order_code')->get();
+        return Order::where('user_id', Auth::id())->select('order_code', 'transaction_status', 'delivery_status')->groupBy('order_code')->get();
     }
 
     public function get_orders_by_user_id()

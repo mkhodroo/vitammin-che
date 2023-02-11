@@ -29,6 +29,18 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="col-sm-6">
+                        <table class="table" style="text-align: center; color: black">
+                            <tr>
+                                <td>{{ __('transaction status') }}</td>
+                                <td>{{ __($item->transaction_status) }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ __('delivery status') }}</td>
+                                <td>{{ __($item->delivery_status) }}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </fieldset>
             </div>
             @endforeach
