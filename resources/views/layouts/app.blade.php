@@ -128,7 +128,7 @@
                 <div class="header-search">
                     <form action="javascript:void(0)" id="search-form">
                         @csrf
-                        <input class="form-control" type="text"  name="search" id="search-field" list="search" autocomplete="off" placeholder="جستجو ..."/>
+                        <input class="form-control" type="text"  name="q" id="search-field" list="search" autocomplete="off" placeholder="جستجو ..."/>
                     </form>
                     <div class="col-sm-12" id="search" style="background: white; border: solid 1px green; z-index: 9999 !important"></div>
                     <button><i class="fa fa-search"></i></button>
