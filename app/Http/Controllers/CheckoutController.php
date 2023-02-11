@@ -49,7 +49,7 @@ class CheckoutController extends Controller
     public function verify_online_pay($amount)
     {
         $result = ZarinpalController::verify($amount);
-        if($result['refID']){
+        if($result){
             $orderController = new OrderController();
             OrderController::set_payment_tracking_number_for_order_by_authority($result['authority'], $result['refID']);
             return view('store.checkout.verify-pay')->with([
