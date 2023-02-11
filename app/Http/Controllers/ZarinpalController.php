@@ -79,17 +79,25 @@ class ZarinpalController extends Controller
         $result = json_decode($result, true);
 
         if ($err) {
-            return ;
+            return [
+                'success' => 0,
+                'authority' => $Authority,
+            ];
         } else {
             if (isset($result['data']['code']) && $result['data']['code'] == 100) {
                 return [
+                    'success' => 1,
                     'refID' => $result['data']['ref_id'],
                     'authority' => $Authority
                 ];
             } else {
                 // echo'code: ' . $result['errors']['code'];
                 // echo'message: ' .  $result['errors']['message'];
-                return ;
+                return [
+                    'success' => 0,
+                    'authority' => $Authority,
+                    'description' => $result['errors']['message']
+                ];
             }
         }
     }

@@ -89,6 +89,16 @@ class OrderController extends Controller
         $orders = self::get_orders_by_authority($authority);
         foreach($orders as $order){
             $order->payment_tracking_number = $refID;
+            $order->transaction_status = enums::transaction_status['ok'];
+            $order->save();
+        }
+    }
+
+    public static function set_transaction_status_for_order_by_authority($authority, $status)
+    {
+        $orders = self::get_orders_by_authority($authority);
+        foreach($orders as $order){
+            $order->transaction_status = $status;
             $order->save();
         }
     }
@@ -122,4 +132,7 @@ class OrderController extends Controller
     {
         Order::where('order_code', $order_code)->update([ 'payment_tracking_number' => $refID ]);
     }
+
+    
+
 }

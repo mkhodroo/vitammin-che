@@ -12,5 +12,12 @@ class enums
         'online' => 'آنلاین',
         'offline' => 'پرداخت پس از تحویل',
     ];
+
+    const transaction_status = [
+        'ok' => 'ok',
+        'pending' => 'pending',
+        'cancel' => 'cancel',
+        'error' => 'error'
+    ];
 }
 

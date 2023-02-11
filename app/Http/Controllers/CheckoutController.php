@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\enums;
 use App\Models\Cart;
 use App\Models\Order;
 use Carbon\Carbon;
@@ -32,7 +33,6 @@ class CheckoutController extends Controller
         OrderController::add_user_cart_items_to_order($order_code, $r->how_to_send, $r->address, $r->payment_status);
         
         $this->increase_last_order_number();
-        CartController::delete_user_cart_items();
 
         
         
@@ -49,13 +49,14 @@ class CheckoutController extends Controller
     public function verify_online_pay($amount)
     {
         $result = ZarinpalController::verify($amount);
-        if($result){
-            $orderController = new OrderController();
+        if($result['success']){
+            CartController::delete_user_cart_items();
             OrderController::set_payment_tracking_number_for_order_by_authority($result['authority'], $result['refID']);
             return view('store.checkout.verify-pay')->with([
                 'message' => "پرداخت با موفیت انجام شد. کد رهگیری : " . $result['refID']
             ]);
         }
+        OrderController::set_transaction_status_for_order_by_authority($result['authority'], enums::transaction_status['cancel']);
         return view('store.checkout.verify-pay')->with([
             'error' => "خطا در انجام تراکنش"
         ]);
