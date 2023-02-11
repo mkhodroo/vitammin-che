@@ -19,6 +19,7 @@ function create_dropzone(element_id, init = null, acceptedFiles = null, name = '
     var myDropzone = $(`#${element_id}`).dropzone({
         // addRemoveLinks: true,
         acceptedFiles: acceptedFiles,
+        maxFilesize: 0.7,
         init: initfun,
         paramName: name,
         success: function (file, response) {
