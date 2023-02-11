@@ -12,4 +12,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/search')->group(function(){
     Route::any('', [SearchController::class, 'find'])->name('search');
+    Route::any('/list', [SearchController::class, 'list'])->name('search-list');
 });

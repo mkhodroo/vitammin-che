@@ -13,7 +13,7 @@ function send_ajax_request(url, data, callback, erCallback){
         }
     })
     .done(callback)
-    .catch(erCallback)
+    .error(erCallback)
 }
 
 function send_ajax_get_request(url, callback){

@@ -1,1 +1,1 @@
-<img src="data:image/png;base64,{{ $src }}" alt="{{ $alt ?? '' }}" width="{{ $width ?? '150' }}">
+<img src="data:image/png;base64,{{ $src }}" alt="{{ Str::limit($alt, 10, '...') ?? '' }}" width="{{ $width ?? '150' }}">

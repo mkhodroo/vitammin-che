@@ -126,9 +126,11 @@
 
                 <!-- Header search -->
                 <div class="header-search">
-                    <input class="form-control" type="text"  name="search" id="search-field" list="search" autocomplete="off" placeholder="جستجو ..."/>
-                    <div class="" id="search" style="background: white"></div>
-                    @csrf
+                    <form action="javascript:void(0)" id="search-form">
+                        @csrf
+                        <input class="form-control" type="text"  name="search" id="search-field" list="search" autocomplete="off" placeholder="جستجو ..."/>
+                    </form>
+                    <div class="col-sm-12" id="search" style="background: white; border: solid 1px green; z-index: 9999 !important"></div>
                     <button><i class="fa fa-search"></i></button>
                 </div>
                 <script>
@@ -137,28 +139,19 @@
                     })
                     $('#search-field').on('keyup', function(){
                         if( $(this).val().length >= 3){
-                            var fd = new FormData();
-                            fd.append('q', $('#search-field').val());
-                            $.ajax({
-                                headers: {
-                                    'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                            send_ajax_request(
+                                `{{ route('search-list')}}`,
+                                $('#search-form').serialize(),
+                                function(body){
+                                    // console.log(body);
+                                    $('#search').html(body);
+                                    $('#search').fadeIn();
                                 },
-                                method: 'post',
-                                url: `{{ route('search')}}`,
-                                data: fd,
-                                processData: false,
-                                contentType: false,
-                                success: function(data){
+                                function(data){
                                     console.log(data);
-                                    var datalist = $('#search');
-                                    datalist.fadeIn();
-                                    datalist.html('');
-                                    data.forEach(function (item) { 
-                                        console.log(item);
-                                        datalist.append(`<a href="${item.link}"><ol>${item.name}</ol></a>`)
-                                    })
                                 }
-                            })
+                            );
+                            
                         }else{
                             $('#search').fadeOut();
                         }

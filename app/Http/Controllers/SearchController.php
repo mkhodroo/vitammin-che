@@ -28,7 +28,9 @@ class SearchController extends Controller
     public function search_in_product_name($str)
     {
         return Product::select('id','name')->where('name', 'like', "%$str%")->take(4)->get()->each(function($c){
-            $c->name = "محصول: $c->name";
+            $c->type = "product";
+            $c->image = $c->image()?->image;
+            $c->price = $c->min_price();
             $c->link = route('product-show', ['id' => $c->id]);
         })->toArray();
     }
@@ -36,8 +38,15 @@ class SearchController extends Controller
     public function search_in_catagory($str)
     {
         return ProductCatagory::select('id','name')->where('name', 'like', "%$str%")->take(3)->get()->each(function($c){
+            $c->type = "catagory";
             $c->link = route('show-catagory-by-name', ['name' => $c->name]);
             $c->name = "دسته بندی: $c->name";
         });
+    }
+
+    public function list(Request $r){
+        return view('store.search.list')->with([
+            'items' => $this->find($r)
+        ]);
     }
 }
