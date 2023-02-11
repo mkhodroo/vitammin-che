@@ -93,6 +93,7 @@ class OrderController extends Controller
             $order->transaction_status = enums::transaction_status['ok'];
             $order->save();
         }
+        return $orders;
     }
 
     public static function set_transaction_status_for_order_by_authority($authority, $status)
@@ -102,6 +103,7 @@ class OrderController extends Controller
             $order->transaction_status = $status;
             $order->save();
         }
+        return $orders;
     }
 
     public static function add_user_cart_items_to_order($order_code, $how_to_send, $address_id, $payment_status){

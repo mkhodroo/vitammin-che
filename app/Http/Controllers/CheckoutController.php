@@ -51,12 +51,14 @@ class CheckoutController extends Controller
         $result = ZarinpalController::verify($amount);
         if($result['success']){
             CartController::delete_user_cart_items();
-            OrderController::set_payment_tracking_number_for_order_by_authority($result['authority'], $result['refID']);
+            $orders = OrderController::set_payment_tracking_number_for_order_by_authority($result['authority'], $result['refID']);
+            SmsController::new_order_to_admin($orders->first()->order_code);
+            SmsController::order_validated($orders->first()->user()->cellphone, $orders->first()->order_code);
             return view('store.checkout.verify-pay')->with([
                 'message' => "پرداخت با موفیت انجام شد. کد رهگیری : " . $result['refID']
             ]);
         }
-        OrderController::set_transaction_status_for_order_by_authority($result['authority'], enums::transaction_status['cancel']);
+        $orders = OrderController::set_transaction_status_for_order_by_authority($result['authority'], enums::transaction_status['cancel']);
         return view('store.checkout.verify-pay')->with([
             'error' => "خطا در انجام تراکنش"
         ]);
