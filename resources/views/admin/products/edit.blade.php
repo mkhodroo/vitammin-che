@@ -65,7 +65,7 @@
                                 <input type="text" name="seller_name" id="seller_name" value="{{ $producer->seller_name ?? '' }}">
                             </td>
                             <td>
-                                <input type="text" name="price" id="price" value="{{ $producer?->price()->price ?? '' }}">
+                                <input type="text" name="price" id="price" dir="ltr" value="{{ $producer?->price()->price ?? '' }}">
                             </td>
                         </tr>
                         <tr>
