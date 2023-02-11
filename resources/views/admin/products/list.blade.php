@@ -51,11 +51,15 @@
 
         $('#example23 tbody').on('dblclick', 'tr', function () {
             var data = table.row(this).data();
-            url = '{{ route("admin-edit-product-form", [ "id" => "id" ]) }}';
-            url = url.replace("id", data.id);
-            open_modal(url)
+            edit_modal(data.id)
             // get_info(data['id']);
         });
+
+        function edit_modal(product_id){
+            url = '{{ route("admin-edit-product-form", [ "id" => "id" ]) }}';
+            url = url.replace("id", product_id);
+            open_modal(url)
+        }
 
 
 

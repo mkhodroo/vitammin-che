@@ -36,8 +36,8 @@
                 success: function(data) {
                     console.log(data);
                     alert_notification('محصول اضافه شد');
-                    refresh_table();
-                    get_info(data.id);
+                    refresh_table(table);
+                    edit_modal(data.id);
                     close_add_modal();
                 }
             })
