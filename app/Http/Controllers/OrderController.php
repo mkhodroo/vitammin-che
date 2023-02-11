@@ -51,6 +51,7 @@ class OrderController extends Controller
     {
         return Order::whereIn('product_producer_id', $user_product_producers_id)
             ->groupBy('order_code')
+            ->orderBy('id', 'desc')
             ->get()->each(function($c){
                 $c->how_to_send = enums::how_to_send[$c->how_to_send];
                 $c->payment_status = enums::payment_status[$c->payment_status];
