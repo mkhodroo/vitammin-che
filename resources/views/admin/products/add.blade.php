@@ -25,21 +25,15 @@
 
 <script>
     function add_product() {
-            $.ajax({
-                url: `{{ route('add-product') }}`,
-                data: $('#add-product-form').serialize(),
-                processData: false,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                method: 'post',
-                success: function(data) {
-                    console.log(data);
-                    alert_notification('محصول اضافه شد');
-                    refresh_table(table);
-                    edit_modal(data.id);
-                    close_add_modal();
-                }
-            })
-        }
+        send_ajax_request(
+            `{{ route('add-product') }}`,
+            $('#add-product-form').serialize(),
+            function(data){
+                alert_notification('محصول اضافه شد');
+                refresh_table(table);
+                edit_modal(data.id);
+                close_add_modal();
+            }
+        )
+    }
 </script>
