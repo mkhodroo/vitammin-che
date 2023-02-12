@@ -23,7 +23,7 @@ class BlogPostController extends Controller
             'post_date_gmt' => $now, 
             'post_content' => $r->content, 
             'post_title' => $r->title,
-            'post_excerpt' => '', 
+            'post_excerpt' => $r->excerpt, 
             'post_status' => 'publish', 
             'comment_status' => 'open', 
             'ping_status' => 'open', 

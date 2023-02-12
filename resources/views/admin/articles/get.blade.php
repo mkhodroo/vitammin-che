@@ -57,7 +57,7 @@
                     var excerpt = $($('article p')[0]).html();
                     var article = $('article')
                     $('#article-form #title').val(title)
-                    $('#article-form #excerpt').val(title)
+                    $('#article-form #excerpt').val(excerpt)
                     $('#article-form #content').val(article.html())
                     $('#demo').html('')
                     var fd = $('#article-form').serialize()
