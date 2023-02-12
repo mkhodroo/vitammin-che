@@ -17,7 +17,7 @@ class BlogPostController extends Controller
     {
         // return urlencode($r->title);
         $now = date('Y-m-d H:s:i');
-        return BlogPost::create([
+        $post =  BlogPost::create([
             'post_author' => 1, 
             'post_date' => $now, 
             'post_date_gmt' => $now, 
@@ -35,11 +35,14 @@ class BlogPostController extends Controller
             'post_modified_gmt' => $now, 
             'post_content_filtered' => '', 
             'post_parent' => 0, 
-            'guid' => 'https://vitaminche.ir/blog/?p='. DB::raw(`'ID'`), 
+            'guid' => 'https://vitaminche.ir/blog/?p=', 
             'menu_order' => 0, 
             'post_type' => 'post', 
             'post_mime_type' => '', 
             'comment_count' => 0
         ]);
+        $post->guid = $post->guid . $post->id;
+        $post->save();
+        return $post;
     }
 }
