@@ -150,12 +150,14 @@
   height: auto;
 }
 .swiper-button-next{
-  border-radius: 50% !important;
-  padding: 30px;
+  border-radius: 10px !important;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.623);
 }
 .swiper-button-prev{
-  border-radius: 50% !important;
-  padding: 30px;
+  border-radius: 10px !important;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.623);
 }
 .sigle-post{
   width: 300px !important;

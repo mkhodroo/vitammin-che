@@ -38,10 +38,10 @@
 <script type="text/javascript" src="{{ url('public/store/assets/list-scroller/jquery.als-2.1.min.js') }}" ></script>
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  href="{{ url('public/swiperjs/swiper-bundle.min.css') }}"
 />
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="{{ url('public/swiperjs/swiper-bundle.min.js') }}"></script>
 
 
 
