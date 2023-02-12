@@ -13,6 +13,20 @@
         }, 1000);
     }
 
+    function show_catagory_product(name, element = "main-content"){
+        var url = "{{ route('show-catagory-by-name', ['name' => 'cat_name'] ) }}"
+        url = url.replace("cat_name", name);
+        send_ajax_get_request(
+            url,
+            function(body){
+                $(`#${element}`).html(body)
+            }
+        )
+        $(`html, body`).animate({
+            scrollTop: $(`#${element}`).offset().top
+        }, 1000);
+    }
+
     $(".select2").select2();
     
     function alert_notification(msg='انجام شد'){
