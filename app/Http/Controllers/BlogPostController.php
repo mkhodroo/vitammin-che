@@ -10,7 +10,7 @@ class BlogPostController extends Controller
 {
     public function newest_posts()
     {
-        return BlogPost::where('post_status', 'publish')->where('post_type', 'post')->get();
+        return BlogPost::where('post_status', 'publish')->where('post_type', 'post')->orderBy('ID', 'desc')->get();
     }
 
     public function add(Request $r)
