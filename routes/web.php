@@ -80,6 +80,7 @@ Route::prefix('/admin')->middleware(['access'])->group(function(){
     require __DIR__.'/methods.php';
     require __DIR__.'/product-catagories.php';
     require __DIR__.'/roles.php';
+    require __DIR__.'/articles.php';
 });
 
 require __DIR__.'/carts.php';

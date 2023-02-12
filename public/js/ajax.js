@@ -1,11 +1,11 @@
-function send_ajax_request(url, data, callback, erCallback){
+function send_ajax_request(url, data, callback, erCallback, csrf_token = ''){
     show_loading()
     return $.ajax({
         url: url,
         data: data,
         processData: false,
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            'X-CSRF-TOKEN': csrf_token
         },
         method: 'post',
         complete: function(){
@@ -13,7 +13,7 @@ function send_ajax_request(url, data, callback, erCallback){
         }
     })
     .done(callback)
-    .error(erCallback)
+    .catch(erCallback)
 }
 
 function send_ajax_get_request(url, callback){

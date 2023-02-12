@@ -52,6 +52,11 @@
                     <i class="fa fa-circle-o text-danger"></i><span class="hide-menu">!نقش ها</span>
                 </a>
             </li>
+            <li>
+                <a class="waves-effect waves-dark" href="{{ route('admin.article') }}" aria-expanded="false">
+                    <i class="fa fa-circle-o text-danger"></i><span class="hide-menu">{{ __('articles') }}</span>
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- End Sidebar navigation -->
