@@ -31,6 +31,18 @@
         }
     </style>
 
+    <script>
+        $().ready(function(){
+            send_ajax_get_request(
+            "{{ route('products.specials') }}",
+            function(data){
+                console.log(data);
+            }
+        )
+        })
+        
+    </script>
+
     <section class="page-section">
         <div class="col-sm-3">
             <div class="margin-tb-10" onclick="show_catagory_by_part_of_name('محصولات مادر و کودک')">
@@ -41,6 +53,30 @@
             </div>
         </div>
         <div class="col-sm-9" id="main-content">
+            <div class="swiper swiper2 swiper-coverflow swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress special-products">
+                <!-- Additional required wrapper -->
+                <div class="col-sm-12 special-products-header" style="">
+                    <h3>
+                        شگفت انگیزان
+                    </h3>
+                </div>
+                <div class="swiper-wrapper">
+                    @foreach ($specials as $item)
+                        <div class="swiper-slide">
+                            @include('store.products.single',[
+                                'producer' => $item
+                            ])
+                        </div>
+                    @endforeach 
+                  ...
+                </div>
+              
+                <!-- If we need scrollbar -->
+                <div class="swiper-button-next btn btn-default"></div>
+                <div class="swiper-button-prev btn btn-default"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+
             <div class="swiper newest-products">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
@@ -144,6 +180,29 @@
                     prevEl: ".swiper-button-prev",
                 },
             });
+            
+            var swiper = new Swiper(".swiper2", {
+                effect: "coverflow",
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: "auto",
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                timeLeft: 10000,
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+            });
+  
           </script>
     </section>
     <!-- /PAGE -->

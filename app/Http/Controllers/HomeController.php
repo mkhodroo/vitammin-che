@@ -14,6 +14,7 @@ class HomeController extends Controller
         $products = new ProductController();
         $posts = new BlogPostController();
         return view('store.home.home')->with([
+            'specials' => ProductProducerController::specials(),
             'newest_products' =>  ProductProducerController::newests(),
             'catagories' => ProductCatagory::get(),
             'newest_posts' => $posts->newest_posts(),

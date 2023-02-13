@@ -90,4 +90,17 @@ class ProductProducerController extends Controller
     {
         return ProductProducer::orderBy('id', 'desc')->take($no)->get();
     }
+
+    public static function specials()
+    {
+        $ps = ProductProducer::get();
+        foreach($ps as $p){
+            if($p->price()?->price < $p->old_price()?->price){
+                $p->special = 1;
+            }else{
+                $p->special = 0;
+            }
+        }
+        return $ps->where('special', 1);
+    }
 }
