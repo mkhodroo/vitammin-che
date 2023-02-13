@@ -85,4 +85,9 @@ class ProductProducerController extends Controller
             })
         ];
     }
+
+    public static function newests($no = 8)
+    {
+        return ProductProducer::orderBy('id', 'desc')->take($no)->get();
+    }
 }

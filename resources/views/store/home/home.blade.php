@@ -51,7 +51,7 @@
                     @foreach ($newest_products as $item)
                         <div class="swiper-slide">
                             @include('store.products.single',[
-                                'product' => $item
+                                'producer' => $item
                             ])
                         </div>
                     @endforeach 

@@ -42,6 +42,23 @@ class Product extends Model
         return $price;
     }
 
+    public function min_old_price()
+    {
+        $rows =  ProductPrice::whereNotNull('price')
+        ->select(DB::raw('max(id) as id'))
+        ->groupBy('product_id', 'product_producer_id')
+        ->where('product_id', $this->id)
+        ->orderBy('id', 'desc')->get()->each(function($c){
+            $c->price = ProductPrice::find($c->id);
+        });
+
+        $price = collect($rows)->sortBy('price.price')->first()?->price;
+        if($price?->price){
+            $price = ProductPriceController::cal_price($price);
+        }
+        return $price;
+    }
+
     public function images()
     {
         return ProductImage::where('product_id', $this->id)->get();

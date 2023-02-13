@@ -260,3 +260,16 @@ img{
 .margin-tb-10{
   margin: 10px 0 10px 0 !important;
 }
+
+del{
+  color: red !important;
+}
+
+.discount-icon{
+  z-index: 99 !important;
+  position: fixed !important;
+  right: 7%;
+  background-color: red !important;
+  color: white !important;
+  padding: 2px 8px 2px 8px ;
+}

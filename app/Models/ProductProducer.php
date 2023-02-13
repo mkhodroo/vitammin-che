@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Http\Controllers\ProductPriceController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class ProductProducer extends Model
 {
@@ -19,6 +20,14 @@ class ProductProducer extends Model
         if($price?->price){
             $price = ProductPriceController::cal_price($price);
         }
+        return $price;
+    }
+
+
+    public function old_price()
+    {
+        $price = ProductPrice::where('product_producer_id', $this->id)->whereNotNull('price')->latest()->skip(1)->first();
+        
         return $price;
     }
 

@@ -101,6 +101,7 @@ class ProductController extends Controller
     {
         return Product::orderBy('id', 'desc')->take(5)->get()->each(function($c){
             $c->price = $c->min_price()?->price;
+            
         });
     }
 
