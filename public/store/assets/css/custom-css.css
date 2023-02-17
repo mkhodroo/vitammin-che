@@ -285,3 +285,13 @@ del{
   text-align: center;
   width: 100%;
 }
+
+#alert-success .modal-content{
+  background-color: green; 
+  color: white;
+}
+
+#alert-error .modal-content{
+  background-color: rgb(166, 41, 41); 
+  color: white;
+}

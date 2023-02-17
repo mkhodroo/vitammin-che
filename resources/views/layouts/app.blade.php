@@ -188,6 +188,11 @@
                                 منو محصولات
                             </a>
                         </li>
+                        <li class="sale">
+                            <a href="#" onclick="show_view_in_element('{{ route('request.index') }}')">
+                                درخواست محصول
+                            </a>
+                        </li>
 {{--                         
                         <li class="megamenu"><a href="#">محصولات</a>
                             <ul>

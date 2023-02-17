@@ -42,18 +42,30 @@
         }, 1000);
     }
 
+    function show_view_in_element(url, element= 'main-content'){
+        send_ajax_get_request(
+            url,
+            function(body){
+                $(`#${element}`).html(body)
+            }
+        )
+        $(`html, body`).animate({
+            scrollTop: $(`#${element}`).offset().top
+        }, 1000);
+    }
+
     $(".select2").select2();
     
     function alert_notification(msg='انجام شد'){
-        $('#alert-success').html(msg);
-        $('#alert-success').show();
+        $('#alert-success .modal-body').html(msg);
+        $('#alert-success').modal('show');
         $('#alert-success').delay(2000).fadeOut('slow');;
     }
 
     function error_notification(msg='خطا دریافت شد'){
-        $('#alert-error').html(msg);
-        $('#alert-error').show();
-        $('#alert-error').delay(3000).fadeOut('slow');;
+        $('#alert-error .modal-body').html(msg);
+        $('#alert-error').modal('show');
+        // $('#alert-error').delay(4000).fadeOut('slow');
     }
 
     function add_to_cart(product_producer_id){

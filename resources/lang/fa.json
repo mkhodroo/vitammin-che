@@ -9,6 +9,9 @@
     "transaction status": "وضعیت تراکنش",
     "delivery status": "وضعیت ارسال",
     "product": "محصول",
-    "catagory": "دسته بندی"
+    "catagory": "دسته بندی",
+    "register": "ثبت",
+    "registered": "ثبت شد",
+    "cellphone": "شماره همراه"
 
 }

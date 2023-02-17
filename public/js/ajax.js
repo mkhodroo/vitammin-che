@@ -1,5 +1,11 @@
-function send_ajax_request(url, data, callback, erCallback, csrf_token = ''){
+function send_ajax_request(url, data, callback, erCallback = null , csrf_token = ''){
     show_loading()
+    if(erCallback == null){
+        erCallback= function(data){ 
+            // console.log(data);
+            error_notification(data.responseJSON.message);
+        }
+    }
     return $.ajax({
         url: url,
         data: data,
@@ -10,10 +16,10 @@ function send_ajax_request(url, data, callback, erCallback, csrf_token = ''){
         method: 'post',
         complete: function(){
             hide_loading();
-        }
+        },
+        error: erCallback
     })
     .done(callback)
-    .catch(erCallback)
 }
 
 function send_ajax_get_request(url, callback){

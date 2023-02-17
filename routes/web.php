@@ -91,6 +91,7 @@ require __DIR__.'/catagories.php';
 require __DIR__.'/address.php';
 require __DIR__.'/search.php';
 require __DIR__.'/menu.php';
+require __DIR__.'/requests.php';
 
 
 
