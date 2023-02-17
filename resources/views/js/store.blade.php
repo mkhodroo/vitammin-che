@@ -40,6 +40,8 @@
         $(`html, body`).animate({
             scrollTop: $(`#${element}`).offset().top
         }, 1000);
+        close_menu_toggle();
+
     }
 
     function show_view_in_element(url, element= 'main-content'){
@@ -52,6 +54,11 @@
         $(`html, body`).animate({
             scrollTop: $(`#${element}`).offset().top
         }, 1000);
+        close_menu_toggle();
+    }
+
+    function close_menu_toggle(){
+        $('.menu-toggle-close').click();
     }
 
     $(".select2").select2();
