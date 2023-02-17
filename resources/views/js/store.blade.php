@@ -27,6 +27,21 @@
         }, 1000);
     }
 
+    function show_menu_product(menu_name, element = "main-content"){
+        var url = "{{ route('show-catagory-by-part-of-name', ['name' => 'cat_name']) }}"
+        url = url.replace("cat_name", menu_name);
+        send_ajax_get_request(
+            url,
+            function(body){
+                $(`#${element}`).html(body)
+                close_modal();
+            }
+        )
+        $(`html, body`).animate({
+            scrollTop: $(`#${element}`).offset().top
+        }, 1000);
+    }
+
     $(".select2").select2();
     
     function alert_notification(msg='انجام شد'){
@@ -86,6 +101,12 @@
                 $(this).html(parseInt($(this).html()).toLocaleString())
             }
         })
+    }
+
+    function open_menu(item){
+        var url = "{{ route('menu.get', ['item' => 'item'] ) }}"
+        url = url.replace("item", item);
+        open_modal(url);
     }
 </script>
 

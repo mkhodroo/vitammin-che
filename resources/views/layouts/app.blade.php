@@ -76,6 +76,7 @@
     @include('store.auth.login')
     @include('store.auth.register')
     @include('layouts.alert')
+    @include('layouts.modal')
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-right">
@@ -182,6 +183,12 @@
                         <li class="active">
                             <a href="{{ route('home') }}">VITAMINCHE</a>
                         </li>
+                        <li class="sale">
+                            <a href="#" onclick="open_menu('main')">
+                                منو محصولات
+                            </a>
+                        </li>
+{{--                         
                         <li class="megamenu"><a href="#">محصولات</a>
                             <ul>
                                 <li class="row" >
@@ -216,7 +223,7 @@
                                     </div>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li class="sale"><a href="{{ route('home') }}">فروشگاه</a></li>
                     </ul>
                 </nav>
