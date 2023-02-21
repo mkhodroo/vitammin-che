@@ -23,13 +23,16 @@
         </tr>
     </table>
 </div>
-    <table class="table table-striped" id="article-table">
-
-    </table>
-    
     <form action="" id="add-product-form">
         @csrf
         <input type="text" name="name" id="product-name">
+        
+    </form>
+    <form action="" id="add-product-catagory-form">
+        @csrf
+        <input type="text" name="id" id="cat-product-id">
+        <input type="text" name="name" id="cat-product-name">
+        <input type="text" name="catagory" id="catagory" placeholder="{{ __('catagory') }}">
     </form>
 
     <form action="" id="add-price-form">
@@ -39,7 +42,7 @@
         <input type="text" name="seller_name" id="seller_name" value="ویتامین چ">
         <input type="text" name="price" id="price" dir="ltr" >
     </form>
-    
+
 
     <form action="" id="article-form">
         @csrf
@@ -47,6 +50,11 @@
         <input type="text" name="excerpt" id="excerpt">
         <input type="text" name="content" id="content">
     </form>
+    <table class="table table-striped" id="article-table">
+
+    </table>
+    
+    
     <div id="demo">
         
     </div>
@@ -92,6 +100,15 @@
                     $('#product-id').val(data.id);
                     $('#price').val(price);
                     $('#producer-name').val(producer);
+                    $('#cat-product-id').val(data.id);
+                    $('#cat-product-name').val(data.name);
+                    send_ajax_request(
+                        "{{ route('admin-edit-product') }}",
+                        $('#add-product-catagory-form').serialize(),
+                        function(c){
+                            console.log(c);
+                        }
+                    )
                     send_ajax_request(
                         "{{ route('admin-edit-product-producer') }}",
                         $('#add-price-form').serialize(),
