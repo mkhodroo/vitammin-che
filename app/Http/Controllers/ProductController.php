@@ -31,11 +31,20 @@ class ProductController extends Controller
     public function add(Request $r)
     {
         // AccessController::check('add_product');
+        $p = $this->get_by_name($r->name);
+        if($p){
+            return $p;
+        }
         $p = Product::create([
             'name' => $r->name,
             'user_id' => Auth::id()
         ]);
         return response($p);
+    }
+
+    public function get_by_name($name)
+    {
+        return Product::where('name', $name)->first();
     }
 
     public function get_user_products()

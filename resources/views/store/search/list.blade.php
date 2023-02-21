@@ -6,7 +6,13 @@
                     @include('img.thumb', [ 'src' => $item['image'] , 'alt' => $item['name'], 'width' => '50' ])                    
                 @endif
             </td>
-            <td><a href="{{ $item['link'] }}">{{ __($item['type']) }}: {{ $item['name'] }}</a></td>
+            <td>
+                @if ($item['type'] == "product")
+                    <a href="{{ $item['link'] }}">{{ __($item['type']) }}: {{ $item['name'] }}</a>
+                @else
+                    <a href="#" onclick="show_catagory_product('{{ $item['name'] }}')">{{ __($item['type']) }}: {{ $item['name'] }}</a>
+                @endif
+            </td>
             <td>
                 @if ($item['type'] == "product")
                     <span class="cama_sep">{{ $item['price']->price }}</span> ت 

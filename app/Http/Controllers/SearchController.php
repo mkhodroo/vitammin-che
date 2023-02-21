@@ -40,7 +40,6 @@ class SearchController extends Controller
         return ProductCatagory::select('id','name')->where('name', 'like', "%$str%")->take(3)->get()->each(function($c){
             $c->type = "catagory";
             $c->link = route('show-catagory-by-name', ['name' => $c->name]);
-            $c->name = "دسته بندی: $c->name";
         });
     }
 
