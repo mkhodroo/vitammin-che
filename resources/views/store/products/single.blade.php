@@ -18,13 +18,15 @@
             </div>
             <div class="caption text-center">
                 <h4 class="caption-title"><a href="{{ route('product-show', [ 'id' => $product->id ]) }}">{{ $product->name ?? '' }}</a></h4>
-                <div class="price"><ins>
-                    <span class="camma-value"> {{ $producer?->price()->price ?? '' }} </span>
-                    <span style="color: black">تومان</span>
-                </ins> 
-                @if ( $producer?->price()?->price < $producer->old_price()?->price)
-                    <del>{{ $producer->old_price()->price ?? '' }}</del></div>
-                @endif
+                <div class="price">
+                    <ins>
+                        <span class="camma-value"> {{ $producer?->price()->price ?? '' }} </span>
+                        <span style="color: black">تومان</span>
+                    </ins> 
+                    @if ( $producer?->price()?->price < $producer->old_price()?->price)
+                        <del>{{ $producer->old_price()->price ?? '' }}</del>
+                    @endif
+                </div>
                 <div class="buttons">
                     <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
                     --><a class="btn btn-theme btn-theme-transparent btn-icon-left" onclick="add_to_cart({{$product->min_price()?->product_producer_id}})"><i class="fa fa-shopping-cart"></i>افزودن به سبد</a><!--
