@@ -27,7 +27,7 @@
             </div>
             <div class="col-sm-12">
                 <h4>{{ __('dr description') }}: </h4>
-                <p>{{ $product->dr_description()->description }}</p>
+                <p>{{ $product->dr_description()?->description }}</p>
             </div>
         </div>
 
