@@ -21,7 +21,10 @@
                 <div class="price"><ins>
                     <span class="camma-value"> {{ $producer?->price()->price ?? '' }} </span>
                     <span style="color: black">تومان</span>
-                </ins> <del>{{ $producer->old_price()->price ?? '' }}</del></div>
+                </ins> 
+                @if ( $producer?->price()?->price < $producer->old_price()?->price)
+                    <del>{{ $producer->old_price()->price ?? '' }}</del></div>
+                @endif
                 <div class="buttons">
                     <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
                     --><a class="btn btn-theme btn-theme-transparent btn-icon-left" onclick="add_to_cart({{$product->min_price()?->product_producer_id}})"><i class="fa fa-shopping-cart"></i>افزودن به سبد</a><!--
