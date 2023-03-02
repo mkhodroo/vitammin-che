@@ -23,8 +23,12 @@
                         <option value="{{ $item->id }}">تولیدکننده: {{ $item->name }} - فروشنده: {{ $item->seller_name }}</option>
                     @endforeach
                 </select>
+                <hr>
             </div>
-            
+            <div class="col-sm-12">
+                <h4>{{ __('dr description') }}: </h4>
+                <p>{{ $product->dr_description()->description }}</p>
+            </div>
         </div>
 
         <div class="col-sm-3" id="cart-details" style="background: #f4f4f4; margin: 10px; padding: 10px; text-align: center; border-radius: 10px">

@@ -88,4 +88,9 @@ class Product extends Model
     {
         return ProductCatagory::find($this->product_catagory_id);
     }
+
+    public function dr_description()
+    {
+        return ProductDescription::where('product_id', $this->id)->first();
+    }
 }

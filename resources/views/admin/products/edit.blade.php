@@ -11,6 +11,7 @@
         <li class="active" ><a href="#product" data-toggle="tab">محصول</a></li> |
         <li class="" ><a href="#producer" data-toggle="tab">تولیدکنندگان</a></li> |
         <li><a href="#images" data-toggle="tab">تصاویر</a></li> |
+        <li><a href="#dr-description" data-toggle="tab">توضیحات دکتر</a></li> |
     </ul>
     <div class="tab-content">
 
@@ -86,6 +87,17 @@
                 <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
             </form>
         </div>
+
+
+        <div id="dr-description" class="tab-pane fade">
+            <form action="javascript:void(0)" id="dr-description-form">
+                @csrf
+                <input type="hidden" name="product_id" value="{{$product->id}}" >
+                <textarea name="dr_decription" class="col-sm-12" rows="10"></textarea>
+                <button class="btn btn-success" onclick="edit_dr_description()">{{__('edit')}}</button>
+                
+            </form>
+        </div>
     </div>
 </div>
                 
@@ -129,6 +141,17 @@
         'product-image-form',
         init = '{{ $product->image()->image ?? '' }}'
     )
+
+    function edit_dr_description(){
+        var data = $('#dr-description-form').serialize()
+        send_ajax_request(
+            '{{ route("admin.product.dr_description") }}',
+            data,
+            function(data){
+                alert_notification("{{ __('edited') }}");
+            }
+        )
+    }
 </script>
 
 {{-- <script>
