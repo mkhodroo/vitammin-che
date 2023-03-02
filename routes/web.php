@@ -27,15 +27,16 @@ Route::get('/blog', function(){
 Route::get('/contact-us', [HomeController::class, 'contact_us'])->name('contact-us');
 
 Route::get('/test', function(){
-    $s = new SmsController();
-    $ar = [
-        '09376922176',
-        '09224261029'
-    ];
-    foreach($ar as $to){
-        // $s->send_wellcome_sms($to, 'مرکز خدمات');
-        sleep(5);
-    }
+    SmsController::first_ad('09376922176', ' ');
+    // $s = new SmsController();
+    // $ar = [
+    //     '09376922176',
+    //     '09224261029'
+    // ];
+    // foreach($ar as $to){
+    //     // $s->send_wellcome_sms($to, 'مرکز خدمات');
+    //     sleep(5);
+    // }
     // return $s->send_wellcome_sms();
 });
 
@@ -72,6 +73,7 @@ Route::get('create-pdf', function(){
 
 Route::prefix('/admin')->middleware(['access'])->group(function(){
     require __DIR__.'/admin-products.php';
+    require __DIR__.'/admin-product-description.php';
     require __DIR__.'/admin-producer-prices.php';
     require __DIR__.'/admin-producer-features.php';
     require __DIR__.'/inventory.php';
