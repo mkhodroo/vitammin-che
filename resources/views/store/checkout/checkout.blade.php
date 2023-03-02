@@ -65,7 +65,7 @@
             <fieldset style="background: lightblue; margin: 10px; padding: 5px">
                 <legend style="background: rgb(0, 177, 106)">نحوه ارسال</legend>
                 <div class="col-sm-12">
-                    <input type="radio" name="how_to_send" id="" value="send"> ارسال توسط ما (رایگان برای خرید های بالای 500 هزار تومان)
+                    <input type="radio" name="how_to_send" id="" value="send"> ارسال رایگان توسط ما
                 </div>
                 <div class="col-sm-12">
                     <input type="radio" name="how_to_send" id="" value="delivery_by_customer" disabled> تحویل حضوری توسط شما
