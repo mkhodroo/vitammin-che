@@ -15,9 +15,9 @@ class SearchController extends Controller
         foreach($s as $s){
             $ar[] = $s;
         }
-        if( count($ar) == 4 ){
-            return $ar;
-        }
+        // if( count($ar) == 4 ){
+        //     return $ar;
+        // }
         $s = $this->search_in_catagory($r->q);
         foreach($s as $s){
             $ar[] = $s;
@@ -37,7 +37,7 @@ class SearchController extends Controller
 
     public function search_in_catagory($str)
     {
-        return ProductCatagory::select('id','name')->where('name', 'like', "%$str%")->take(3)->get()->each(function($c){
+        return ProductCatagory::select('id','name')->groupBy('name')->where('name', 'like', "%$str%")->take(3)->get()->each(function($c){
             $c->type = "catagory";
             $c->link = route('show-catagory-by-name', ['name' => $c->name]);
         });
