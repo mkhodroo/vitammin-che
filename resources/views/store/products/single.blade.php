@@ -18,7 +18,7 @@
             </div>
             <div class="caption text-center">
                 <h4 class="caption-title">
-                    <a href="{{ route('product-show', [ 'id' => $product->id ]) }}">{{ Str::limit($product->name, 150, '...') ?? '' }}</a>
+                    <a href="{{ route('product-show', [ 'id' => $product->id ]) }}">{{ Str::limit($product->name, 50, '...') ?? '' }}</a>
                 </h4>
                 <div class="price">
                     <ins>
