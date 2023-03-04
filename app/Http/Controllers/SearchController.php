@@ -43,6 +43,11 @@ class SearchController extends Controller
         });
     }
 
+    public function search_in_cat($str)
+    {
+        
+    }
+
     public function list(Request $r){
         return view('store.search.list')->with([
             'items' => $this->find($r)

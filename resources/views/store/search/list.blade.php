@@ -23,4 +23,9 @@
             </script>
         </tr>
     @endforeach
+    <tr>
+        <td colspan="3">
+            <a id="show-all-product" onclick=""></a>
+        </td>
+    </tr>
 </table>

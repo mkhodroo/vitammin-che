@@ -139,13 +139,16 @@
                         $('#search').delay('fast').fadeOut()
                     })
                     $('#search-field').on('keyup', function(){
-                        if( $(this).val().length >= 3){
+                        var input = $(this).val();
+                        if( input.length >= 3){
                             send_ajax_request(
                                 `{{ route('search-list')}}`,
                                 $('#search-form').serialize(),
                                 function(body){
                                     // console.log(body);
                                     $('#search').html(body);
+                                    $('#show-all-product').html(`مشاهده همه نتایج: ${input}`)
+                                    $('#show-all-product').attr('onclick', `show_catagory_by_part_of_name('${input}')`)
                                     $('#search').fadeIn();
                                 },
                                 function(data){
