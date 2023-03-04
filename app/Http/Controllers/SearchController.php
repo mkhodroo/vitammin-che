@@ -18,10 +18,10 @@ class SearchController extends Controller
         // if( count($ar) == 4 ){
         //     return $ar;
         // }
-        $s = $this->search_in_catagory($r->q);
-        foreach($s as $s){
-            $ar[] = $s;
-        }
+        // $s = $this->search_in_catagory($r->q);
+        // foreach($s as $s){
+        //     $ar[] = $s;
+        // }
         return $ar;
     }
 
