@@ -17,7 +17,9 @@
                 </a>
             </div>
             <div class="caption text-center">
-                <h4 class="caption-title"><a href="{{ route('product-show', [ 'id' => $product->id ]) }}">{{ $product->name ?? '' }}</a></h4>
+                <h4 class="caption-title">
+                    <a href="{{ route('product-show', [ 'id' => $product->id ]) }}">{{ Str::limit($product->name, 150, '...') ?? '' }}</a>
+                </h4>
                 <div class="price">
                     <ins>
                         <span class="camma-value"> {{ $producer?->price()->price ?? '' }} </span>
