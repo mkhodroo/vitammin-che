@@ -193,7 +193,7 @@
                         </li>
                         <li class="sale">
                             <a href="#" onclick="show_view_in_element('{{ route('request.index') }}')">
-                                درخواست محصول
+                                درخواست مشاوره
                             </a>
                         </li>
 {{--                         
