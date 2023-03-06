@@ -16,6 +16,7 @@ class RequestController extends Controller
 
     public function add(Request $r)
     {
+        SmsController::new_order_to_admin('درخواست');
         return ModelsRequest::create($r->all());
     }
 
