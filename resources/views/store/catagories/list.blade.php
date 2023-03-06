@@ -9,7 +9,7 @@
         <tr>
             <td width="150">
                 @include('img.thumb', [
-                    'src' => $product->image()->image,
+                    'src' => $product->image()?->image,
                     'alt' => $product->name
                 ])
             </td>
