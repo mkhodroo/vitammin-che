@@ -222,10 +222,7 @@
                             <h4 class="widget-title">درباره ما</h4>
                             <p></p>
                             <ul class="social-icons">
-                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="https://instagram.com/vitaminche.ir" class="instagram"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
