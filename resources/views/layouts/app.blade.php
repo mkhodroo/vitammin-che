@@ -5,7 +5,7 @@
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>VitaminChe</title>
+    <title>@yield('title')</title>
     <meta name="keywords" content="@yield('keywords')" / >
     <meta name="description" content="@yield('description')" / >
 
@@ -17,10 +17,10 @@
     <link href="{{ url('public/store/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url('public/store/assets/plugins/bootstrap-select/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ url('public/store/assets/plugins/fontawesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ url('public/store/assets/plugins/prettyphoto/css/prettyPhoto.css') }}" rel="stylesheet">
-    <link href="{{ url('public/store/assets/plugins/owl-carousel2/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ url('public/store/assets/plugins/owl-carousel2/assets/owl.theme.default.min.css') }}" rel="stylesheet">
-    <link href="{{ url('public/store/assets/plugins/animate/animate.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ url('public/store/assets/plugins/prettyphoto/css/prettyPhoto.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ url('public/store/assets/plugins/owl-carousel2/assets/owl.carousel.min.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ url('public/store/assets/plugins/owl-carousel2/assets/owl.theme.default.min.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ url('public/store/assets/plugins/animate/animate.min.css') }}" rel="stylesheet"> --}}
     <link href="{{ url('public/dashboard/assets/node_modules/select2/dist/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ url('public/store/assets/css/bootstrap-theme.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ url('public/store/assets/css/custom-css.css') }}" rel="stylesheet" type="text/css" />
@@ -29,20 +29,17 @@
 
     <!-- Theme CSS -->
     <link href="{{ url('public/store/assets/css/theme.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ url('public/store/assets/list-scroller/als_style.css') }}" />
+    {{-- <link rel="stylesheet" type="text/css" media="screen" href="{{ url('public/store/assets/list-scroller/als_style.css') }}" /> --}}
 
     <!-- Head Libs -->
-    <script src="{{ url('public/store/assets/plugins/modernizr.custom.js') }}"></script>
+    {{-- <script src="{{ url('public/store/assets/plugins/modernizr.custom.js') }}"></script> --}}
 
     <script src="{{ url('public/store/assets/plugins/jquery/jquery-1.11.1.min.js') }}"></script>
-<script type="text/javascript" src="{{ url('public/store/assets/list-scroller/jquery.als-2.1.min.js') }}" ></script>
-<script> !function (t, e, n) { t.yektanetAnalyticsObject = n, t[n] = t[n] || function () { t[n].q.push(arguments) }, t[n].q = t[n].q || []; var a = new Date, r = a.getFullYear().toString() + "0" + a.getMonth() + "0" + a.getDate() + "0" + a.getHours(), c = e.getElementsByTagName("script")[0], s = e.createElement("script"); s.id = "ua-script-9DqBY2ni"; s.dataset.analyticsobject = n; s.async = 1; s.type = "text/javascript"; s.src = "https://cdn.yektanet.com/rg_woebegone/scripts_v3/9DqBY2ni/rg.complete.js?v=" + r, c.parentNode.insertBefore(s, c) }(window, document, "yektanet"); </script>
-<link
-  rel="stylesheet"
-  href="{{ url('public/swiperjs/swiper-bundle.min.css') }}"
-/>
+    {{-- <script type="text/javascript" src="{{ url('public/store/assets/list-scroller/jquery.als-2.1.min.js') }}" ></script> --}}
+    <script> !function (t, e, n) { t.yektanetAnalyticsObject = n, t[n] = t[n] || function () { t[n].q.push(arguments) }, t[n].q = t[n].q || []; var a = new Date, r = a.getFullYear().toString() + "0" + a.getMonth() + "0" + a.getDate() + "0" + a.getHours(), c = e.getElementsByTagName("script")[0], s = e.createElement("script"); s.id = "ua-script-9DqBY2ni"; s.dataset.analyticsobject = n; s.async = 1; s.type = "text/javascript"; s.src = "https://cdn.yektanet.com/rg_woebegone/scripts_v3/9DqBY2ni/rg.complete.js?v=" + r, c.parentNode.insertBefore(s, c) }(window, document, "yektanet"); </script>
+    <link  rel="stylesheet"  href="{{ url('public/swiperjs/swiper-bundle.min.css') }}" />
 
-<script src="{{ url('public/swiperjs/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url('public/swiperjs/swiper-bundle.min.js') }}"></script>
 
 
 
@@ -197,42 +194,6 @@
                                 درخواست مشاوره
                             </a>
                         </li>
-{{--                         
-                        <li class="megamenu"><a href="#">محصولات</a>
-                            <ul>
-                                <li class="row" >
-                                    <div class="col-md-2">
-                                        <h4 class="block-title"><span>شامپو</span></h4><hr>
-                                        <ul>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شامپو بچه']) }}">شامپو بچه</a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شامپو']) }}">شامپو</a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شامپو بدن بچه']) }}">شامپو بدن بچه</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h4 class="block-title"><span>لوسیون و مرطوب کننده</span></h4><hr>
-                                        <ul>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'لوسیون و مرطوب کننده بدن']) }}">لوسیون و مرطوب کننده بدن</a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'روغن بدن']) }}">روغن بدن</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h4 class="block-title"><span></span></h4><hr>
-                                        <ul>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرمخزن مخروطی']) }}"></a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرمخزن استوانه']) }}"></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h4 class="block-title"><span></span></h4><hr>
-                                        <ul>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرقطع کن دستی']) }}"></a></li>
-                                            <li><a href="{{ route('show-catagory-by-name', ['name' => 'شیرقظع کن برقی']) }}"></a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li> --}}
                         <li class="sale"><a href="{{ route('home') }}">فروشگاه</a></li>
                     </ul>
                 </nav>
@@ -338,20 +299,20 @@
 <!-- JS Global -->
 <script src="{{ url('public/store/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ url('public/store/assets/plugins/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ url('public/store/assets/plugins/superfish/js/superfish.min.js') }}"></script>
+{{-- <script src="{{ url('public/store/assets/plugins/superfish/js/superfish.min.js') }}"></script>
 <script src="{{ url('public/store/assets/plugins/prettyphoto/js/jquery.prettyPhoto.js') }}"></script>
 <script src="{{ url('public/store/assets/plugins/owl-carousel2/owl.carousel.min.js') }}"></script>
 <script src="{{ url('public/store/assets/plugins/jquery.sticky.min.js') }}"></script>
 <script src="{{ url('public/store/assets/plugins/jquery.easing.min.js') }}"></script>
 <script src="{{ url('public/store/assets/plugins/jquery.smoothscroll.min.js') }}"></script>
-<script src="{{ url('public/store/assets/plugins/smooth-scrollbar.min.js') }}"></script>
+<script src="{{ url('public/store/assets/plugins/smooth-scrollbar.min.js') }}"></script> --}}
 <script src="{{ url('public/dashboard/assets/node_modules/select2/dist/js/select2.full.min.js') }}" type="text/javascript"></script>
 
 <!-- JS Page Level -->
 <script src="{{ url('public/store/assets/js/theme.js') }}"></script>
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="{{ url('public/store/assets/plugins/jquery.cookie.js') }}"></script>
+{{-- <script src="{{ url('public/store/assets/plugins/jquery.cookie.js') }}"></script> --}}
 <!--<![endif]-->
 
 <!-- Custome JS -->

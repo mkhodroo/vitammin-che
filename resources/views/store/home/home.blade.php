@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
+@section('title')
+    {{ config('app.default_title') }}
+@endsection
+
 @section('keywords')
     ویتامین چ , داروخانه آنلاین , لوازم آرایشی و بهداشتی ,  لوازم آرایشی ,  لوازم بهداشتی , مکمل دارویی
 @endsection
 
 @section('description')
-    ویتامین چ فروشگاه آنلاین مکمل های دارویی ، لوازم آرایشی و بهداشتی
+    {{ config('app.default_description') }}
 @endsection
 
 @section('content')

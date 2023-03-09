@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('title')
+    {{ $product->name }} | {{ config('app.default_title') }}
+@endsection
+
+@section('description')
+    {{ $product->dr_description()?->description ??  config('app.default_description')  }}
+@endsection
+
 @section('content')
     <section class="page-section">
         <div class="col-sm-4">
@@ -10,7 +18,7 @@
         </div>
         
         <div class="col-sm-4">
-            <div class="col-sm-12" ><h3 style="color: black; font-weight: bold">{{ $product->name }}</h3><hr></div>
+            <div class="col-sm-12" ><h1 style="color: black; font-weight: bold; font-size: 20px">{{ $product->name }}</h1><hr></div>
             <div class="col-sm-12">
                 دسته بندی: 
                 <h5 style="display: inline !important">{{ $product->catagory()?->name }}</h5>
