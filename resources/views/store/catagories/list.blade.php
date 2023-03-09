@@ -13,7 +13,7 @@
                     'alt' => $product->name
                 ])
             </td>
-            <td>{{ $product->name }}</td>
+            <td><a href="{{ route('product-show', ['id' => $product->id]) }}">{{ $product->name }}</a></td>
             <td><span class="camma-value">{{ $product->min_price()->price ?? '' }}</span> ت </td>
             <td width="150">
                 <div class="buttons">
